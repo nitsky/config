@@ -24,10 +24,6 @@
     opengl = {
       enable = true;
       driSupport = true;
-      extraPackages = with pkgs; [
-        intel-media-driver
-        vaapiIntel
-      ];
     };
     video.hidpi.enable = true;
   };

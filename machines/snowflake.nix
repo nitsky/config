@@ -50,6 +50,10 @@ inputs: inputs.nixpkgs.lib.nixosSystem {
         { device = "/dev/mapper/vg-swap"; }
       ];
       powerManagement.cpuFreqGovernor = lib.mkDefault "powersave";
+      hardware.opengl.extraPackages = with pkgs; [
+        intel-media-driver
+        vaapiIntel
+      ];
     })
     inputs.home-manager.nixosModules.home-manager {
       home-manager.useGlobalPkgs = true;
