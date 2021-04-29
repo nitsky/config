@@ -18,7 +18,7 @@
   };
   outputs = inputs: {
     nixosConfigurations = {
-      # babyshark = import ./machines/babyshark.nix inputs;
+      babyshark = import ./machines/babyshark.nix inputs;
       snowflake = import ./machines/snowflake.nix inputs;
     };
   };
