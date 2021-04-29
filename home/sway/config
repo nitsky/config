@@ -1,0 +1,149 @@
+# Cursor
+seat seat0 xcursor_theme Adwaita 24
+
+# Set some variables.
+set $mod mod4
+set $left h
+set $down j
+set $up k
+set $right l
+
+# Exit Sway.
+bindsym $mod+Shift+q exec swaymsg exit
+
+# Reload the config.
+bindsym $mod+Shift+r reload
+
+# Close the focused window.
+bindsym $mod+w kill
+
+# Kill the process of the focused window.
+bindsym $mod+q exec swaymsg -t get_tree | jq '.. | select(.type?) | select(.focused==true).pid' | xargs kill
+
+# Configure the output.
+output * {
+	background ~/.config/sway/wallpaper.png fit #000000
+}
+
+output DP-1 {
+	scale 1.5
+}
+
+output eDP-1 {
+	scale 2
+}
+
+# Make sure the window under the cursor is always focused.
+focus_follows_mouse always
+
+input type:touchpad {
+	natural_scroll enabled
+	scroll_factor 0.6
+	tap enabled
+	dwt enabled
+}
+
+# Lock the screen automatically.
+bindsym $mod+Escape exec swaylock
+exec swayidle -w \
+	before-sleep swaylock \
+	timeout 300 swaylock \
+	timeout 360 'swaymsg "output * dpms off"' \
+	resume 'swaymsg "output * dpms on"'
+
+# Disable xwayland!
+xwayland disable
+
+bar {
+	colors {
+		background #222222
+		focused_workspace #333333 #333333 #bbbbbb
+		statusline #bbbbbb
+	}
+	font 16px
+	position top
+	status_command "i3status-rs ~/.config/i3status-rust/config-top.toml"
+}
+
+#                       border  bg      text    indi    child
+client.focused          #000000 #000000 #000000 #054280 #054280
+client.focused_inactive #000000 #000000 #000000 #000000 #333333
+client.unfocused        #000000 #000000 #000000 #000000 #333333
+default_border pixel
+
+# Launcher.
+for_window [app_id="launcher"] focus, floating enabled
+bindsym $mod+Return exec alacritty --class launcher --command $SHELL -c "ls /run/current-system/sw/bin/ /etc/profiles/per-user/$USER/bin/ | fzf | xargs -r swaymsg exec"
+
+bindsym $mod+t exec alacritty --working-directory="$(swaycwd)"
+bindsym $mod+g exec firefox
+bindsym $mod+c exec code-insiders --enable-features=UseOzonePlatform --ozone-platform=wayland
+
+# Audio control.
+bindsym XF86AudioPlay exec playerctl play-pause
+bindsym XF86AudioPrev exec playerctl previous
+bindsym XF86AudioNext exec playerctl next
+bindsym XF86AudioMute exec pamixer -t
+bindsym XF86AudioLowerVolume exec pamixer -d 5
+bindsym XF86AudioRaiseVolume exec pamixer -i 5
+bindsym XF86MonBrightnessUp exec brightnessctl set +5%
+bindsym XF86MonBrightnessDown exec brightnessctl set 5%-
+
+# Screenshots.
+bindsym $mod+p exec screenshot
+
+# Layout control.
+bindsym $mod+u focus parent
+bindsym $mod+Shift+u focus child
+bindsym $mod+v splitv
+bindsym $mod+b splith
+bindsym $mod+s layout toggle splith splitv tabbed
+
+# Move focus.
+bindsym $mod+$left focus left
+bindsym $mod+$down focus down
+bindsym $mod+$up focus up
+bindsym $mod+$right focus right
+
+# Move the focused container.
+bindsym $mod+Shift+$left move left
+bindsym $mod+Shift+$down move down
+bindsym $mod+Shift+$up move up
+bindsym $mod+Shift+$right move right
+
+# Resize the focused container.
+bindsym $mod+Ctrl+$left resize shrink width 240px
+bindsym $mod+Ctrl+$down resize grow height 240px
+bindsym $mod+Ctrl+$up resize shrink height 240px
+bindsym $mod+Ctrl+$right resize grow width 240px
+
+# Make the focused container fullscreen.
+bindsym $mod+f fullscreen
+
+# Make the current focus floating.
+bindsym $mod+Shift+f floating toggle
+floating_modifier $mod
+
+# Switch to the specified workspace.
+bindsym $mod+1 workspace 1
+bindsym $mod+2 workspace 2
+bindsym $mod+3 workspace 3
+bindsym $mod+4 workspace 4
+bindsym $mod+5 workspace 5
+bindsym $mod+6 workspace 6
+bindsym $mod+7 workspace 7
+bindsym $mod+8 workspace 8
+bindsym $mod+9 workspace 9
+bindsym $mod+0 workspace 10
+
+# Move the focused container to the specified workspace.
+bindsym $mod+Shift+1 move container to workspace 1
+bindsym $mod+Shift+2 move container to workspace 2
+bindsym $mod+Shift+3 move container to workspace 3
+bindsym $mod+Shift+4 move container to workspace 4
+bindsym $mod+Shift+5 move container to workspace 5
+bindsym $mod+Shift+6 move container to workspace 6
+bindsym $mod+Shift+7 move container to workspace 7
+bindsym $mod+Shift+8 move container to workspace 8
+bindsym $mod+Shift+9 move container to workspace 9
+bindsym $mod+Shift+0 move container to workspace 10
