@@ -71,6 +71,7 @@
   };
 
   environment.systemPackages = with pkgs; [
+    git
     sof-firmware
   ];
 
