@@ -7,7 +7,6 @@
   nixpkgs.config.allowUnfree = true;
 
   networking = {
-    hostName = "snowflake";
     useDHCP = false;
     networkmanager.enable = true;
     firewall.enable = false;

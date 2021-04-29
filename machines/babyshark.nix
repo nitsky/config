@@ -5,6 +5,7 @@ inputs: inputs.nixpkgs.lib.nixosSystem {
     (import ./overlay.nix inputs)
     ./common.nix
     ({ pkgs, lib, ... }: {
+      networking.hostName = "babyshark";
       boot = {
         blacklistedKernelModules = [ "psmouse" ];
         consoleLogLevel = 0;

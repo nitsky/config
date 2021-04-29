@@ -4,7 +4,7 @@
     settings = {
       global = {
         backend = "pulseaudio";
-        device_name = "snowflake";
+        device_name = "spotifyd";
         no_audio_cache = true;
         password_cmd = "gopass spotify.com/david@yamnitsky.com";
         username = "davidyamnitsky";

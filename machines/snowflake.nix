@@ -5,6 +5,7 @@ inputs: inputs.nixpkgs.lib.nixosSystem {
     (import ./overlay.nix inputs)
     ./common.nix
     ({ pkgs, lib, ... }: {
+      networking.hostName = "snowflake";
       boot = {
         blacklistedKernelModules = [ "psmouse" ];
         consoleLogLevel = 0;
