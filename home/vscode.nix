@@ -8,7 +8,7 @@
         pname = "vscode-insiders";
         src = builtins.fetchTarball {
           url = "https://update.code.visualstudio.com/latest/linux-x64/insider";
-          sha256 = "1f7pm0xyqipqkjcw3l4cil3xc4gyca0hyapwl48inh1iss0bwpym";
+          sha256 = "0xcvwr71l07ryzlhhw943xlzc3yn2x0xiq0dzdlpcyyz9fs80hya";
           };
       });
     extensions = [

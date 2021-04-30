@@ -55,6 +55,7 @@ inputs: inputs.nixpkgs.lib.nixosSystem {
         intel-media-driver
         vaapiIntel
       ];
+      hardware.video.hidpi.enable = true;
       environment.etc = {
         "dual-function-keys.yaml".text = ''
           MAPPINGS:

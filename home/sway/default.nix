@@ -16,10 +16,6 @@
   gtk = {
     enable = true;
     theme.name = "Adwaita";
-    iconTheme = {
-      package = pkgs.gnome3.adwaita-icon-theme;
-      name = "Adwaita";
-    };
     gtk3 = {
       extraCss = ''
         * { outline-width: 0px; }

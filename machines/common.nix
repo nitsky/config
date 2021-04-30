@@ -11,7 +11,7 @@
   networking = {
     useDHCP = false;
     networkmanager.enable = true;
-    firewall.enable = false;
+    firewall.trustedInterfaces = ["tailscale0"];
   };
 
   i18n.defaultLocale = "en_US.UTF-8";
@@ -26,7 +26,6 @@
       enable = true;
       driSupport = true;
     };
-    video.hidpi.enable = true;
   };
 
   users.users.nitsky = {
