@@ -2,14 +2,6 @@
   xdg = {
     configFile = {
       "mimeapps.list".force = true;
-      "sway/wallpaper.png".source = ./sway/wallpaper.png;
-      "swaylock/config".text = ''
-        color=000000FF
-        daemonize
-        ignore-empty-password
-        image=~/.config/sway/wallpaper.png
-        scaling=fit
-      '';
     };
     mimeApps = {
       enable = true;

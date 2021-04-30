@@ -13,6 +13,7 @@
         "devtools.theme" = "dark";
         "gfx.webrender.all" = true;
         "media.ffmpeg.vaapi.enabled" = true;
+        "media.ffmpeg.low-latency.enabled" = true;
         "media.ffvpx.enabled" = false;
         "media.navigator.mediadatadecoder_vpx_enabled" = true;
         "media.rdd-vpx.enabled" = false;

@@ -76,4 +76,23 @@
       background-color=#FF453A
     '';
   };
+
+  xdg.configFile = {
+    "sway/wallpaper.png".source = ./wallpaper.png;
+    "swaylock/config".text = ''
+      color=000000FF
+      daemonize
+      ignore-empty-password
+      image=~/.config/sway/wallpaper.png
+      scaling=fit
+    '';
+    "xdg-desktop-portal-wlr/config".text = ''
+      [screencast]
+      output_name=eDP-1
+      exec_before="notify-send 'screensharing started'"
+      exec_after="notify-send 'screensharing ended'"
+      chooser_type=simple
+      chooser_cmd="slurp -f %o -o"
+    '';
+  };
 }
