@@ -10,6 +10,7 @@
         "browser.sessionstore.resume_session_once" = true;
         "browser.shell.checkDefaultBrowser" = false;
         "browser.warnOnQuit" = false;
+        "devtools.theme" = "dark";
         "gfx.webrender.all" = true;
         "media.ffmpeg.vaapi.enabled" = true;
         "media.ffvpx.enabled" = false;

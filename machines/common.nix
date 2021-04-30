@@ -6,6 +6,8 @@
 
   nixpkgs.config.allowUnfree = true;
 
+  security.sudo.wheelNeedsPassword = false;
+
   networking = {
     useDHCP = false;
     networkmanager.enable = true;

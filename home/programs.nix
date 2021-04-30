@@ -1,15 +1,19 @@
 { pkgs, ... }: {
   home.packages = with pkgs; [
     aerc
+    binutils
     cowsay
     exa
     fd
     fortune
+    gcc
     gnome3.adwaita-icon-theme
     gopass
     htop
+    hyperfine
     jq
     pavucontrol
+    python3
     ripgrep
     rustup
     tokei

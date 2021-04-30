@@ -25,7 +25,6 @@ inputs: inputs.nixpkgs.lib.nixosSystem {
           verbose = false;
         };
         kernelModules = [ "kvm-amd" ];
-        kernelPackages = pkgs.linuxPackages_latest;
         kernelParams = [
           "quiet"
           "udev.log_priority=3"

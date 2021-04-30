@@ -32,13 +32,16 @@
 
   home.packages = with pkgs; [
     brightnessctl
+    grim
     libnotify
     pamixer
     playerctl
+    slurp
     swaycwd
     swayidle
     swaylock
     wayvnc
+    wf-recorder
     wl-clipboard
     xdg-utils
   ];
