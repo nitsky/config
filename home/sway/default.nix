@@ -33,12 +33,12 @@
     pamixer
     playerctl
     slurp
-    swaycwd
     swayidle
     swaylock
     wayvnc
     wf-recorder
     wl-clipboard
+    wofi
     xdg-utils
   ];
 
@@ -74,6 +74,34 @@
   };
 
   xdg.configFile = {
+    "sway/cwd.sh" = {
+      executable = true;
+      source = ./cwd.sh;
+    };
+    "sway/choose_output.sh" = {
+      executable = true;
+      source = ./choose_output.sh;
+    };
+    "wofi/config".text = ''
+      prompt=
+      matching=fuzzy
+      term=alacritty
+    '';
+    "wofi/style.css".text = ''
+      #window {
+        background: #333333;
+        font-family: JetBrainsMono Nerd Font;
+      }
+      #input {
+        background: #333333;
+        border-radius: 0px;
+        border: none;
+      }
+      #entry:selected {
+        background: #0A84FF;
+        outline: none;
+      }
+    '';
     "sway/wallpaper.png".source = ./wallpaper.png;
     "swaylock/config".text = ''
       color=000000FF
@@ -85,10 +113,10 @@
     "xdg-desktop-portal-wlr/config".text = ''
       [screencast]
       output_name=eDP-1
-      exec_before="notify-send 'screensharing started'"
-      exec_after="notify-send 'screensharing ended'"
-      chooser_type=simple
-      chooser_cmd="slurp -f %o -o"
+      exec_before="notify-send 'Screen sharing started.'"
+      exec_after="notify-send 'Screen sharing ended.'"
+      chooser_type=dmenu
+      chooser_cmd="wofi --dmenu"
     '';
   };
 }

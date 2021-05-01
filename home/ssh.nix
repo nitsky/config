@@ -8,17 +8,13 @@
         host = "babyshark";
         hostname = "100.100.213.21";
       };
-      ezzy = {
-        host = "ezzy";
-        hostname = "100.76.197.41";
-      };
       mba = {
         host = "mba";
         hostname = "100.89.221.9";
       };
       snowflake = {
         host = "snowflake";
-        hostname = "100.98.192.32";
+        hostname = "100.121.28.94";
       };
       vader = {
         host = "vader";

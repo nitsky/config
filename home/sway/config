@@ -51,6 +51,9 @@ exec swayidle -w \
 	timeout 360 'swaymsg "output * dpms off"' \
 	resume 'swaymsg "output * dpms on"'
 
+# Run mako.
+exec mako
+
 # Disable xwayland!
 xwayland disable
 
@@ -75,7 +78,7 @@ default_border pixel
 for_window [app_id="launcher"] focus, floating enabled
 bindsym $mod+Return exec alacritty --class launcher --command $SHELL -c "ls /run/current-system/sw/bin/ /etc/profiles/per-user/$USER/bin/ | fzf | xargs -r swaymsg exec"
 
-bindsym $mod+t exec alacritty --working-directory="$(swaycwd)"
+bindsym $mod+t exec alacritty --working-directory="$(~/.config/sway/cwd.sh)"
 bindsym $mod+g exec firefox
 bindsym $mod+c exec code-insiders --enable-features=UseOzonePlatform --ozone-platform=wayland
 
