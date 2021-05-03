@@ -1,21 +1,19 @@
 -- Plugins.
-require("packer").startup(function()
-  use { "wbthomason/packer.nvim" }
-  use { "nvim-lua/completion-nvim" }
-  use { "nvim-lua/lsp-status.nvim" }
-  use { "nvim-lua/lsp_extensions.nvim" }
-  use { "neovim/nvim-lspconfig" }
-  use { "nvim-treesitter/nvim-treesitter" }
-  use { "kyazdani42/nvim-web-devicons" }
-  use {
-    "nvim-telescope/telescope.nvim",
-    requires = {
-      { "nvim-lua/popup.nvim" },
-      { "nvim-lua/plenary.nvim" },
-      { "nvim-telescope/telescope-symbols.nvim" },
-    },
-  }
-  use { "christoomey/vim-tmux-navigator" }
+local packer = require("packer")
+packer.startup(function()
+  use("b3nj5m1n/kommentary")
+  use("christoomey/vim-tmux-navigator")
+  use("kyazdani42/nvim-web-devicons")
+  use("neovim/nvim-lspconfig")
+  use("nvim-lua/completion-nvim")
+  use("nvim-lua/lsp_extensions.nvim")
+  use("nvim-lua/lsp-status.nvim")
+  use("nvim-lua/plenary.nvim")
+  use("nvim-lua/popup.nvim")
+  use("nvim-telescope/telescope-symbols.nvim")
+  use("nvim-telescope/telescope.nvim")
+  use("nvim-treesitter/nvim-treesitter")
+  use("wbthomason/packer.nvim")
 end)
 
 -- Enable 24-bit color.
@@ -36,14 +34,14 @@ vim.o.showtabline = 2
 
 -- Set the statusline.
 vim.o.statusline = "%f %= %{LspStatus()}"
-vim.cmd [[
+vim.cmd([[
   function! LspStatus() abort
     if luaeval("#vim.lsp.buf_get_clients() > 0")
       return luaeval('require("lsp-status").status()')
     endif
     return ""
   endfunction
-]]
+]])
 
 --Do not show the mode in the command line.
 vim.o.showmode = false
@@ -107,9 +105,7 @@ vim.api.nvim_set_keymap("n", "U", ":redo<CR>", { noremap = true })
 vim.api.nvim_set_keymap("n", "<C-w>s", ":vsplit<CR>:wincmd l<CR>", { noremap = true })
 
 -- Move between splits.
-vim.cmd [[
-  let g:tmux_navigator_no_mappings = 1
-]]
+vim.g.tmux_navigator_no_mappings = 1
 vim.api.nvim_set_keymap("n", "<M-h>", ":vsplit<CR>:wincmd l<CR>", { noremap = true })
 vim.api.nvim_set_keymap("n", "<M-h>", "TmuxNavigateLeft<CR>", { noremap = true })
 vim.api.nvim_set_keymap("n", "<M-j>", "TmuxNavigateDown<CR>", { noremap = true })
@@ -126,21 +122,21 @@ vim.api.nvim_set_keymap("n", "<M-M>", ":tabclose<CR>", { noremap = true })
 vim.api.nvim_set_keymap("n", "<C-M-s>", ":wa<CR>", { noremap = true })
 
 -- Hide cmdline after entering a command.
-vim.cmd [[
+vim.cmd([[
   augroup cmdline
     autocmd!
     autocmd CmdlineLeave : echo ""
   augroup end
-]]
+]])
 
 -- tree-sitter
 local treesitter = require("nvim-treesitter.configs")
-treesitter.setup {
+treesitter.setup({
   ensure_installed = "maintained",
   highlight = {
     enable = true,
   },
-}
+})
 
 -- Disable filetype detection.
 vim.cmd [[
@@ -178,6 +174,9 @@ end
 lsp.rust_analyzer.setup({
   on_attach = on_attach,
   capabilities = lsp_status.capabilities,
+  settings = {
+    ["rust-analyzer"] = {}
+  }
 })
 
 vim.lsp.handlers["textDocument/publishDiagnostics"] = vim.lsp.with(
@@ -187,6 +186,19 @@ vim.lsp.handlers["textDocument/publishDiagnostics"] = vim.lsp.with(
     update_in_insert = false,
   }
 )
+
+-- Format on save.
+vim.cmd([[
+augroup FormatAutogroup
+  autocmd!
+  autocmd BufWritePost *.rs lua vim.lsp.buf.formatting_sync(nil, 1000)
+augroup END
+]])
+
+-- Commenting.
+require('kommentary.config').use_extended_mappings()
+vim.api.nvim_set_keymap("n", "<C-c>", "<Plug>kommentary_motion_default", {})
+vim.api.nvim_set_keymap("v", "<C-c>", "<Plug>kommentary_visual_default", {})
 
 vim.api.nvim_set_keymap("n", "<C-s>", ":silent w<CR>", { noremap = true, silent = true })
 vim.api.nvim_set_keymap("n", "<C-i>", "<C-o>", { noremap = true })
@@ -234,9 +246,9 @@ vim.api.nvim_set_keymap(
 vim.api.nvim_set_keymap("i", "<Tab>", "<Plug>(completion_smart_tab)", { noremap = true })
 vim.api.nvim_set_keymap("i", "<S-Tab>", "<Plug>(completion_smart_s_tab)", { noremap = true })
 
-vim.cmd [[
+vim.cmd([[
   let mapleader = "<space>"
-]]
+]])
 
 vim.api.nvim_set_keymap("n", "<M-v>", "<C-v>", { noremap = true })
 
