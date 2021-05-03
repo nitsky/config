@@ -16,6 +16,7 @@
     python3
     ripgrep
     rustup
+    rust-analyzer
     tokei
     vim
     wally-cli

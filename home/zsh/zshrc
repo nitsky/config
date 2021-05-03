@@ -10,8 +10,8 @@ KEYTIMEOUT=0
 
 # use the system clipboard
 function zsh-system-clipboard-vicmd-vi-yank() {
-	zle vi-yank
-	printf '%s' "$CUTBUFFER" | wl-copy
+    zle vi-yank
+    printf '%s' "$CUTBUFFER" | wl-copy
 }
 zle -N zsh-system-clipboard-vicmd-vi-yank
 bindkey -M vicmd 'y' zsh-system-clipboard-vicmd-vi-put
@@ -19,11 +19,11 @@ function zsh-system-clipboard-vicmd-vi-put() {
 }
 zle -N zsh-system-clipboard-vicmd-vi-yank
 function zsh-system-clipboard-vicmd-vi-put-after() {
-	zsh-system-clipboard-vicmd-vi-put after
+    zsh-system-clipboard-vicmd-vi-put after
 }
 zle -N zsh-system-clipboard-vicmd-vi-put-after
 function zsh-system-clipboard-vicmd-vi-put-before() {
-	zsh-system-clipboard-vicmd-vi-put before
+    zsh-system-clipboard-vicmd-vi-put before
 }
 zle -N zsh-system-clipboard-vicmd-vi-put-before
 bindkey -M vicmd 'P' zsh-system-clipboard-vicmd-vi-put-before
