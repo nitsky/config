@@ -20,28 +20,28 @@
       };
       colors = {
         primary = {
-          background = "0x181818";
-          foreground = "0xbbbbbb";
+          background = "0x111111";
+          foreground = "0xdddddd";
         };
         normal = {
-          black = "0xbbbbbb";
+          black = "0xdddddd";
           red = "0xff453a";
           green = "0x30d158";
           yellow = "0xffd60a";
           blue = "0x0a84ff";
           magenta = "0xff375f";
           cyan = "0x4dd0e1";
-          white = "0xbbbbbb";
+          white = "0xdddddd";
         };
         bright = {
-          black = "0xbbbbbb";
+          black = "0xdddddd";
           red = "0xff453a";
           green = "0x30d158";
           yellow = "0xffd60a";
           blue = "0x0a84ff";
           magenta = "0xff375f";
           cyan = "0x4dd0e1";
-          white = "0xbbbbbb";
+          white = "0xdddddd";
         };
       };
       key_bindings = [

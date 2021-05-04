@@ -33,15 +33,7 @@ vim.o.mouse = "a"
 vim.o.showtabline = 2
 
 -- Set the statusline.
-vim.o.statusline = "%f %= %{LspStatus()}"
-vim.cmd([[
-  function! LspStatus() abort
-    if luaeval("#vim.lsp.buf_get_clients() > 0")
-      return luaeval('require("lsp-status").status()')
-    endif
-    return ""
-  endfunction
-]])
+vim.o.statusline = "%!luaeval('statusline_lsp()')"
 
 --Do not show the mode in the command line.
 vim.o.showmode = false
@@ -106,7 +98,6 @@ vim.api.nvim_set_keymap("n", "<C-w>s", ":vsplit<CR>:wincmd l<CR>", { noremap = t
 
 -- Move between splits.
 vim.g.tmux_navigator_no_mappings = 1
-vim.api.nvim_set_keymap("n", "<M-h>", ":vsplit<CR>:wincmd l<CR>", { noremap = true })
 vim.api.nvim_set_keymap("n", "<M-h>", "TmuxNavigateLeft<CR>", { noremap = true })
 vim.api.nvim_set_keymap("n", "<M-j>", "TmuxNavigateDown<CR>", { noremap = true })
 vim.api.nvim_set_keymap("n", "<M-k>", "TmuxNavigateUp<CR>", { noremap = true })
@@ -197,8 +188,8 @@ augroup END
 
 -- Commenting.
 require('kommentary.config').use_extended_mappings()
-vim.api.nvim_set_keymap("n", "<C-c>", "<Plug>kommentary_motion_default", {})
-vim.api.nvim_set_keymap("v", "<C-c>", "<Plug>kommentary_visual_default", {})
+vim.api.nvim_set_keymap("n", "<C-a>", "<Plug>kommentary_motion_default", {})
+vim.api.nvim_set_keymap("v", "<C-a>", "<Plug>kommentary_visual_default", {})
 
 vim.api.nvim_set_keymap("n", "<C-s>", ":silent w<CR>", { noremap = true, silent = true })
 vim.api.nvim_set_keymap("n", "<C-i>", "<C-o>", { noremap = true })
@@ -292,13 +283,7 @@ vim.api.nvim_set_keymap(
 vim.api.nvim_set_keymap(
   "n",
   "<C-e>",
-  "<cmd>lua vim.lsp.diagnostic.goto_next()<CR>",
-  { noremap = true, silent = true }
-)
-vim.api.nvim_set_keymap(
-  "n",
-  "<C-M-e>",
-  "<cmd>lua vim.lsp.diagnostic.goto_prev()<CR>",
+  "<cmd>Telescope lsp_workspace_diagnostics<CR>",
   { noremap = true, silent = true }
 )
 
@@ -306,6 +291,13 @@ colors = {
   background = "#111111",
   muted = "#aaaaaa",
   text = "#dddddd",
+  surface = "#181818",
+  header = "#232323",
+  hover = "#333333",
+  border = "#212121",
+
+  --heading_text = "#ffffff",
+  --fun_text = "#111111",
 
   blue = "#0a84ff",
   gray = "#8e8e93",
@@ -329,122 +321,136 @@ end
 
 -- Colors.
 highlight("EndOfBuffer", { fg = colors.background })
-highlight("LineNr", { fg = colors.background })
-vim.cmd [[
-  hi LineNr guifg=#aaaaaa
-  hi NonText guifg=#444444
-  hi Pmenu guibg=#222222 guifg=#aaaaaa
-  hi PmenuSbar guifg=#333333
-  hi PmenuSel gui=bold guibg=#333333 guifg=#dddddd
-  hi PmenuThumb guifg=#444444
-  hi StatusLine guibg=#aaaaaa guifg=#232323
-  hi StatusLineNC guibg=#aaaaaa guifg=#181818
-  hi TabLine gui=NONE guibg=#222222 guifg=#aaaaaa
-  hi TabLineFill guifg=#222222
-  hi TabLineSel gui=bold guibg=#333333 guifg=#aaaaaa
-  hi Title guifg=#aaaaaa
-  hi VertSplit guibg=#333333 guifg=#111111
-  hi Visual gui=NONE guibg=#333333
-  hi Whitespace guifg=#444444
-]]
+highlight("LineNr", { fg = colors.muted })
+highlight("NonText", { fg = colors.text })
+highlight("Pmenu", { bg = colors.header, fg = colors.muted })
+highlight("PmenuSbar", { fg = colors.header })
+highlight("PmenuSel", { bg = colors.surface, fg = colors.text, style = "bold" })
+highlight("PmenuThumb", { fg = colors.hover })
+highlight("StatusLine", { bg = colors.header, fg = colors.muted })
+highlight("StatusLineNC", { bg = colors.header, fg = colors.muted })
+highlight("TabLine", { bg = colors.header, fg = colors.muted })
+highlight("TabLineFill", { bg = colors.header })
+highlight("TabLineSel", { bg = colors.hover, fg = colors.text , style = "bold"})
+highlight("Title", { fg = colors.muted })
+highlight("VertSplit", { bg = colors.background, fg = colors.hover })
+highlight("Visual", { bg = colors.hover })
+highlight("Whitespace", { fg = colors.hover })
 
 -- Syntax colors.
 vim.o.syntax = "off"
-vim.cmd [[
-  hi Comment guifg=#aaaaaa
-  hi Constant guifg=#0a84ff
-  hi String guifg=#30d158
-  hi Character guifg=#30d158
-  hi Number guifg=#ff9f0a
-  hi Boolean guifg=#ff9f0a
-  hi Float guifg=#ff9f0a
-  hi Identifier guifg=#dddddd
-  hi Function guifg=#0a84ff
-  hi Statement guifg=#dddddd
-  hi Conditional guifg=#bf5af2
-  hi Repeat guifg=#bf5af2
-  hi Label guifg=#bf5af2
-  hi Operator guifg=#dddddd
-  hi Keyword guifg=#bf5af2
-  hi Exception guifg=#bf5af2
-  hi PreProc guifg=#dddddd
-  hi Include guifg=#5e5ce6
-  hi Define guifg=#dddddd
-  hi Macro guifg=#dddddd
-  hi PreCondit guifg=#dddddd
-  hi Type guifg=#ff9f0a
-  hi StorageClass guifg=#ff9f0a
-  hi Structure guifg=#ff9f0a
-  hi TypeDef guifg=#ff9f0a
-  hi Special guifg=#dddddd
-  hi SpecialChar guifg=#dddddd
-  hi Tag guifg=#dddddd
-  hi Delimiter guifg=#dddddd
-  hi SpecialComment guifg=#dddddd
-  hi Debug guifg=#dddddd
-  hi Underlined guifg=#0a84ff
-  hi Ignore guifg=#aaaaaa
-  hi Error guifg=#ff453a
-  hi Todo guifg=#ffd60a
-]]
-vim.cmd [[
-  highlight TSAnnotation guifg=#aaaaaa
-  highlight TSAttribute guifg=#aaaaaa
-  highlight TSBoolean guifg=#aaaaaa
-  highlight TSCharacter guifg=#aaaaaa
-  highlight TSComment guifg=#aaaaaa
-  highlight TSConditional guifg=#aaaaaa
-  highlight TSConstant guifg=#aaaaaa
-  highlight TSConstBuiltin guifg=#aaaaaa
-  highlight TSConstMacro guifg=#aaaaaa
-  highlight TSConstructor guifg=#aaaaaa
-  highlight TSError guifg=#aaaaaa
-  highlight TSException guifg=#aaaaaa
-  highlight TSField guifg=#aaaaaa
-  highlight TSFloat guifg=#aaaaaa
-  highlight TSFunction guifg=#aaaaaa
-  highlight TSFuncBuiltin guifg=#aaaaaa
-  highlight TSFuncMacro guifg=#aaaaaa
-  highlight TSInclude guifg=#aaaaaa
-  highlight TSKeyword guifg=#aaaaaa
-  highlight TSKeywordFunction guifg=#aaaaaa
-  highlight TSKeywordOperator guifg=#aaaaaa
-  highlight TSLabel guifg=#aaaaaa
-  highlight TSMethod guifg=#aaaaaa
-  highlight TSNamespace guifg=#aaaaaa
-  highlight TSNone guifg=#aaaaaa
-  highlight TSNumber guifg=#aaaaaa
-  highlight TSOperator guifg=#aaaaaa
-  highlight TSParameter guifg=#aaaaaa
-  highlight TSParameterReference guifg=#aaaaaa
-  highlight TSProperty guifg=#aaaaaa
-  highlight TSPunctDelimiter guifg=#aaaaaa
-  highlight TSPunctBracket guifg=#aaaaaa
-  highlight TSPunctSpecial guifg=#aaaaaa
-  highlight TSRepeat guifg=#aaaaaa
-  highlight TSString guifg=#aaaaaa
-  highlight TSStringRegex guifg=#aaaaaa
-  highlight TSStringEscape guifg=#aaaaaa
-  highlight TSSymbol guifg=#aaaaaa
-  highlight TSTag guifg=#aaaaaa
-  highlight TSTagDelimiter guifg=#aaaaaa
-  highlight TSText guifg=#aaaaaa
-  highlight TSStrong guifg=#aaaaaa
-  highlight TSEmphasis guifg=#aaaaaa
-  highlight TSUnderline guifg=#aaaaaa
-  highlight TSStrike guifg=#aaaaaa
-  highlight TSTitle guifg=#aaaaaa
-  highlight TSLiteral guifg=#aaaaaa
-  highlight TSURI guifg=#aaaaaa
-  highlight TSMath guifg=#aaaaaa
-  highlight TSTextReference guifg=#aaaaaa
-  highlight TSEnviroment guifg=#aaaaaa
-  highlight TSEnviromentName guifg=#aaaaaa
-  highlight TSNote guifg=#aaaaaa
-  highlight TSWarning guifg=#aaaaaa
-  highlight TSDanger guifg=#aaaaaa
-  highlight TSType guifg=#aaaaaa
-  highlight TSTypeBuiltin guifg=#aaaaaa
-  highlight TSVariable guifg=#aaaaaa
-  highlight TSVariableBuiltin guifg=#aaaaaa
-]]
+highlight("Comment", { fg = colors.muted })
+highlight("Constants", { fg = colors.blue })
+highlight("String", { fg = colors.green })
+highlight("Character", { fg = colors.green })
+highlight("Number", { fg = colors.green })
+highlight("Boolean", { fg = colors.green })
+highlight("Float", { fg = colors.green })
+highlight("Identifier", { fg = colors.text })
+highlight("Function", { fg = colors.blue })
+highlight("Statement", { fg = colors.text })
+highlight("Conditional", { fg = colors.purple })
+highlight("Repeat", { fg = colors.purple })
+highlight("Label", { fg = colors.purple })
+highlight("Operator", { fg = colors.text })
+highlight("Keyword", { fg = colors.purple })
+highlight("Exception", { fg = colors.purple })
+highlight("PreProc", { fg = colors.text })
+highlight("Include", { fg = colors.text })
+highlight("Define", { fg = colors.text })
+highlight("Macro", { fg = colors.text })
+highlight("PreCondit", { fg = colors.text })
+highlight("Type", { fg = colors.teal })
+highlight("StorageClass", { fg = colors.teal })
+highlight("Structure", { fg = colors.teal })
+highlight("TypeDef", { fg = colors.orange })
+highlight("Special", { fg = colors.text })
+highlight("SpecialChar", { fg = colors.text })
+highlight("Tag", { fg = colors.text })
+highlight("Delimiter", { fg = colors.text })
+highlight("SpecialComment", { fg = colors.text })
+highlight("Debug", { fg = colors.text })
+highlight("Underlined", { fg = colors.blue })
+highlight("Ignore", { fg = colors.muted })
+highlight("Error", { fg = colors.red })
+highlight("Todo", { fg = colors.yellow })
+
+highlight("TSAnnotation", { fg = colors.muted })
+highlight("TSAttribute", { fg = colors.text })
+highlight("TSBoolean", { fg = colors.orange })
+highlight("TSCharacter", { fg = colors.green })
+highlight("TSComment", { fg = colors.muted })
+highlight("TSConditional", { fg = colors.purple })
+highlight("TSConstant", { fg = colors.pink })
+highlight("TSConstBuiltin", { fg = colors.text })
+highlight("TSConstMacro", { fg = colors.text })
+highlight("TSConstructor", { fg = colors.text })
+highlight("TSError", { fg = colors.text })
+highlight("TSException", { fg = colors.text })
+highlight("TSField", { fg = colors.text })
+highlight("TSFloat", { fg = colors.orange })
+highlight("TSFunction", { fg = colors.blue })
+highlight("TSFuncBuiltin", { fg = colors.text })
+highlight("TSFuncMacro", { fg = colors.blue })
+highlight("TSInclude", { fg = colors.purple })
+highlight("TSKeyword", { fg = colors.purple })
+highlight("TSKeywordFunction", { fg = colors.purple })
+highlight("TSKeywordOperator", { fg = colors.text })
+highlight("TSLabel", { fg = colors.text })
+highlight("TSMethod", { fg = colors.orange })
+highlight("TSNamespace", { fg = colors.indigo })
+highlight("TSNone", { fg = colors.text })
+highlight("TSNumber", { fg = colors.text })
+highlight("TSOperator", { fg = colors.text })
+highlight("TSParameter", { fg = colors.text })
+highlight("TSParameterReference", { fg = colors.text })
+highlight("TSProperty", { fg = colors.text })
+highlight("TSPunctDelimiter", { fg = colors.text })
+highlight("TSPunctBracket", { fg = colors.text })
+highlight("TSPunctSpecial", { fg = colors.text })
+highlight("TSRepeat", { fg = colors.purple })
+highlight("TSString", { fg = colors.green })
+highlight("TSStringRegex", { fg = colors.text })
+highlight("TSStringEscape", { fg = colors.text })
+highlight("TSSymbol", { fg = colors.text })
+highlight("TSTag", { fg = colors.text })
+highlight("TSTagDelimiter", { fg = colors.text })
+highlight("TSText", { fg = colors.text })
+highlight("TSStrong", { fg = colors.text })
+highlight("TSEmphasis", { fg = colors.text })
+highlight("TSUnderline", { fg = colors.text })
+highlight("TSStrike", { fg = colors.text })
+highlight("TSTitle", { fg = colors.text })
+highlight("TSLiteral", { fg = colors.text })
+highlight("TSURI", { fg = colors.text })
+highlight("TSMath", { fg = colors.text })
+highlight("TSTextReference", { fg = colors.text })
+highlight("TSEnviroment", { fg = colors.text })
+highlight("TSEnviromentName", { fg = colors.text })
+highlight("TSNote", { fg = colors.text })
+highlight("TSWarning", { fg = colors.text })
+highlight("TSDanger", { fg = colors.text })
+highlight("TSType", { fg = colors.teal })
+highlight("TSTypeBuiltin", { fg = colors.text })
+highlight("TSVariable", { fg = colors.text })
+highlight("TSVariableBuiltin", { fg = colors.text })
+
+highlight("StatusLineErrors", { bg = colors.header, fg = colors.red })
+highlight("StatusLineWarnings", { bg = colors.header, fg = colors.yellow })
+highlight("StatusLineInfo", { bg = colors.header, fg = colors.text })
+
+function statusline_lsp()
+  if #vim.lsp.buf_get_clients() == 0 then
+    return ""
+  end
+  local diagnostics = lsp_status.diagnostics()
+  return table.concat {
+    "%f",
+    "%=",
+    "%#StatusLineErrors#", diagnostics.errors,
+    " ",
+    "%#StatusLineWarnings#", diagnostics.warnings,
+    " ",
+    "%#StatusLineInfo#", diagnostics.info,
+  }
+end

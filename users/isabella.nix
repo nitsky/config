@@ -1,5 +1,10 @@
 { pkgs, ... }:
 import ../home {
+  username = "isabella";
+  git = {
+    name = "Isabella Tromba";
+    email = "isabella.tromba@gmail.com";
+  };
   accounts = {
     personal = {
       name = "Isabella Tromba";
@@ -10,5 +15,6 @@ import ../home {
       email = "isabella@tangram.xyz";
     };
   };
+} {
   inherit pkgs;
 }

@@ -1,9 +1,10 @@
+user:
 { ... }: {
   programs.firefox = {
     enable = true;
-    profiles.nitsky = {
+    profiles.${user.username} = {
       id = 0;
-      name = "nitsky";
+      name = user.username;
       isDefault = true;
       settings = {
         "browser.aboutConfig.showWarning" = false;

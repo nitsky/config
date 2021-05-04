@@ -6,6 +6,16 @@ inputs: inputs.nixpkgs.lib.nixosSystem {
     ./common.nix
     ({ pkgs, lib, ... }: {
       networking.hostName = "babyshark";
+      users.users.nitsky = {
+        isNormalUser = true;
+        extraGroups = [ "wheel" ];
+        shell = pkgs.zsh;
+      };
+      users.users.isabella = {
+        isNormalUser = true;
+        extraGroups = [ "wheel" ];
+        shell = pkgs.zsh;
+      };
       boot = {
         blacklistedKernelModules = [ "psmouse" ];
         consoleLogLevel = 0;

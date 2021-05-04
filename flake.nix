@@ -20,6 +20,7 @@
     nixosConfigurations = {
       babyshark = import ./machines/babyshark.nix inputs;
       snowflake = import ./machines/snowflake.nix inputs;
+      vader = import ./machines/vader.nix inputs;
     };
   };
 }

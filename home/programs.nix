@@ -1,6 +1,8 @@
 { pkgs, ... }: {
   home.packages = with pkgs; [
     aerc
+    kitty
+    gnome3.gnome-terminal
     binutils
     cowsay
     exa

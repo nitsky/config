@@ -1,15 +1,16 @@
-{ pkgs, ... }: {
+user:
+{ ... }: {
   imports = [
     ./alacritty.nix
     ./bat.nix
-    ./firefox.nix
+    (import ./firefox.nix user)
     ./fzf.nix
-    ./git.nix
+    (import ./git.nix user)
     ./gpg.nix
     ./htop.nix
     ./lf
     ./nvim
-    ./pim.nix
+    (import ./pim.nix user)
     ./programs.nix
     ./spotify.nix
     ./ssh.nix

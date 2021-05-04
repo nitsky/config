@@ -1,14 +1,15 @@
+user:
 { pkgs, ... }: {
   accounts = {
     email = {
       maildirBasePath = "mail";
-      accounts = {
+      accounts = with user.accounts.personal; {
         personal = {
           primary = true;
-          realName = "David Yamnitsky";
-          address = "david@yamnitsky.com";
-          userName = "david@yamnitsky.com";
-          passwordCommand = "gopass migadu.com/david@yamnitsky.com";
+          realName = name;
+          address = email;
+          userName = email;
+          passwordCommand = "gopass migadu.com/${email}";
           imap = {
             host = "imap.migadu.com";
             port = 993;
@@ -34,10 +35,10 @@
             enable = true;
           };
         };
-        work = {
-          realName = "David Yamnitsky";
-          address = "david@tangram.xyz";
-          userName = "david@tangram.xyz";
+        work = with user.accounts.work; {
+          realName = name;
+          address = email;
+          userName = email;
         };
       };
     };

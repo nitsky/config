@@ -1,6 +1,9 @@
+user:
 { ... }: {
   programs.git = {
     enable = true;
+    userName = user.git.name;
+    userEmail = user.git.email;
     delta = {
       enable = true;
       options = {
@@ -25,7 +28,5 @@
       key = "";
       signByDefault = false;
     };
-    userName = "David Yamnitsky";
-    userEmail = "david@yamnitsky.com";
   };
 }

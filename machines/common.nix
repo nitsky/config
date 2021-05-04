@@ -28,18 +28,6 @@
     };
   };
 
-  users.users.nitsky = {
-    isNormalUser = true;
-    extraGroups = [ "wheel" ];
-    shell = pkgs.zsh;
-  };
-
-  users.users.isabella = {
-    isNormalUser = true;
-    extraGroups = [ "wheel" ];
-    shell = pkgs.zsh;
-  };
-
   services = {
     dbus.packages = with pkgs; [ gnome3.dconf gcr ];
     fwupd.enable = true;

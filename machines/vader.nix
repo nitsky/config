@@ -5,7 +5,7 @@ inputs: inputs.nixpkgs.lib.nixosSystem {
     (import ./overlay.nix inputs)
     ./common.nix
     ({ pkgs, lib, ... }: {
-      networking.hostName = "snowflake";
+      networking.hostName = "vader";
       users.users.nitsky = {
         isNormalUser = true;
         extraGroups = [ "wheel" ];
@@ -21,11 +21,11 @@ inputs: inputs.nixpkgs.lib.nixosSystem {
         consoleLogLevel = 0;
         initrd = {
           availableKernelModules = [
-            "i915"
+            "ahci"
             "nvme"
-            "rtsx_pci_sdmmc"
             "sd_mod"
             "usb_storage"
+            "usbhid"
             "xhci_pci"
           ];
           kernelModules = [
@@ -34,8 +34,7 @@ inputs: inputs.nixpkgs.lib.nixosSystem {
           luks.devices.crypt.device = "/dev/nvme0n1p2";
           verbose = false;
         };
-        kernelModules = [ "kvm-intel" ];
-        kernelPackages = pkgs.linuxPackages_latest;
+        kernelModules = [ "kvm-amd" ];
         kernelParams = [
           "quiet"
           "udev.log_priority=3"
@@ -60,36 +59,6 @@ inputs: inputs.nixpkgs.lib.nixosSystem {
       swapDevices = [
         { device = "/dev/mapper/vg-swap"; }
       ];
-      powerManagement.cpuFreqGovernor = lib.mkDefault "powersave";
-      hardware.opengl.extraPackages = with pkgs; [
-        intel-media-driver
-        vaapiIntel
-      ];
-      hardware.video.hidpi.enable = true;
-      environment.etc = {
-        "dual-function-keys.yaml".text = ''
-          MAPPINGS:
-            - KEY: KEY_CAPSLOCK
-              TAP: KEY_ESC
-              HOLD: KEY_LEFTCTRL
-            - KEY: KEY_LEFTALT
-              TAP: KEY_ESC
-              HOLD: KEY_LEFTMETA
-            - KEY: KEY_LEFTMETA
-              TAP: KEY_ESC
-              HOLD: KEY_LEFTALT
-        '';
-      };
-      services.interception-tools = {
-        enable = true;
-        plugins = [ pkgs.interception-tools-plugins.dual-function-keys ];
-        udevmonConfig = ''
-          - JOB: "intercept -g $DEVNODE | dual-function-keys -c /etc/dual-function-keys.yaml | uinput -d $DEVNODE"
-            DEVICE:
-              EVENTS:
-                EV_KEY: [KEY_CAPSLOCK, KEY_ESC]
-        '';
-      };
     })
     inputs.home-manager.nixosModules.home-manager {
       home-manager.useGlobalPkgs = true;
