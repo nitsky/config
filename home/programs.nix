@@ -1,10 +1,18 @@
 { pkgs, ... }: {
   home.packages = with pkgs; [
     aerc
-    kitty
-    gnome3.gnome-terminal
     binutils
+    (pkgs.chromium.override {
+      commandLineArgs = ''
+        --enable-features=UseOzonePlatform
+        --ozone-platform=wayland
+        --enable-features=VaapiVideoDecoder
+        --force-dark-mode
+        --enable-features=WebUIDarkMode
+      '';
+    })
     cowsay
+    dnsutils
     exa
     fd
     fortune
@@ -14,23 +22,18 @@
     htop
     hyperfine
     jq
+    nodejs-16_x
+    nodePackages.http-server
     pavucontrol
-    python3
+    postgresql
+    python39
     ripgrep
-    rustup
     rust-analyzer
+    rustup
     tokei
+    unzip
     vim
     wally-cli
     xh
   ];
-  # pkgs.chromium.override {
-  #   commandLineArgs = ''
-  #     --enable-features=UseOzonePlatform
-  #     --ozone-platform=wayland
-  #     --enable-features=VaapiVideoDecoder
-  #     --force-dark-mode
-  #     --enable-features=WebUIDarkMode
-  #   '';
-  # };
 }

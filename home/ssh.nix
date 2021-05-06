@@ -1,7 +1,7 @@
 { ... }: {
   programs.ssh = {
     enable = true;
-    controlMaster = "yes";
+    controlMaster = "no";
     forwardAgent = true;
     matchBlocks = {
       babyshark = {

@@ -64,6 +64,9 @@
     sof-firmware
   ];
 
+  programs.bash.promptInit = ''
+    PS1="$ "
+  '';
   programs.dconf.enable = true;
   security.pam.services.swaylock = {};
 

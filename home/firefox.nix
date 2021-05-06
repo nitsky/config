@@ -1,5 +1,5 @@
 user:
-{ ... }: {
+{ pkgs, ... }: {
   programs.firefox = {
     enable = true;
     profiles.${user.username} = {

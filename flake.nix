@@ -1,10 +1,10 @@
 {
   inputs = {
     nixpkgs = {
-      url = "github:nixos/nixpkgs/nixos-unstable-small";
+      url = "github:nixos/nixpkgs/nixos-unstable";
     };
     home-manager = {
-      url = "github:nix-community/home-manager";
+      url = "github:nix-community/home-manager/e0ee5068ddefd49728484c18fa032de05be440bf";
       inputs.nixpkgs.follows = "nixpkgs";
     };
     nur = {

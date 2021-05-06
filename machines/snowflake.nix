@@ -8,11 +8,13 @@ inputs: inputs.nixpkgs.lib.nixosSystem {
       networking.hostName = "snowflake";
       users.users.nitsky = {
         isNormalUser = true;
+        createHome = true;
         extraGroups = [ "wheel" ];
         shell = pkgs.zsh;
       };
       users.users.isabella = {
         isNormalUser = true;
+        createHome = true;
         extraGroups = [ "wheel" ];
         shell = pkgs.zsh;
       };
@@ -40,6 +42,9 @@ inputs: inputs.nixpkgs.lib.nixosSystem {
           "quiet"
           "udev.log_priority=3"
         ];
+        kernel.sysctl = {
+          "fs.inotify.max_user_watches" = "524288";
+        };
         loader = {
           efi.canTouchEfiVariables = true;
           systemd-boot.enable = true;

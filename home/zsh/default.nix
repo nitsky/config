@@ -5,4 +5,13 @@
     dirHashes = {};
     initExtraFirst = builtins.readFile ./zshrc + builtins.readFile ../lf/icons;
   };
+  programs.direnv.enable = true;
+  programs.direnv.enableNixDirenvIntegration = true;
+  programs.zsh.envExtra = ''
+    export DIRENV_LOG_FORMAT=""
+  '';
+  xdg.configFile."direnv/config.toml".text = ''
+    [global]
+    warn_timeout = "1000s"
+  '';
 }
