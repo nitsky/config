@@ -1,6 +1,7 @@
 { pkgs, ... }: {
   home.packages = with pkgs; [
     aerc
+    awscli2
     binutils
     (pkgs.chromium.override {
       commandLineArgs = ''
@@ -22,6 +23,7 @@
     htop
     hyperfine
     jq
+    lld_12
     nodejs-16_x
     nodePackages.http-server
     pavucontrol
@@ -36,4 +38,8 @@
     wally-cli
     xh
   ];
+  home.file.".cargo/config.toml".text = ''
+    [target.x86_64-unknown-linux-gnu]
+    rustflags = ["-C", "link-arg=-fuse-ld=lld"]
+  '';
 }

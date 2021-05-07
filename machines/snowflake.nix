@@ -71,20 +71,18 @@ inputs: inputs.nixpkgs.lib.nixosSystem {
         vaapiIntel
       ];
       hardware.video.hidpi.enable = true;
-      environment.etc = {
-        "dual-function-keys.yaml".text = ''
-          MAPPINGS:
-            - KEY: KEY_CAPSLOCK
-              TAP: KEY_ESC
-              HOLD: KEY_LEFTCTRL
-            - KEY: KEY_LEFTALT
-              TAP: KEY_ESC
-              HOLD: KEY_LEFTMETA
-            - KEY: KEY_LEFTMETA
-              TAP: KEY_ESC
-              HOLD: KEY_LEFTALT
-        '';
-      };
+      environment.etc."dual-function-keys.yaml".text = ''
+        MAPPINGS:
+          - KEY: KEY_CAPSLOCK
+            TAP: KEY_ESC
+            HOLD: KEY_LEFTCTRL
+          - KEY: KEY_LEFTALT
+            TAP: KEY_ESC
+            HOLD: KEY_LEFTMETA
+          - KEY: KEY_LEFTMETA
+            TAP: KEY_ESC
+            HOLD: KEY_LEFTALT
+      '';
       services.interception-tools = {
         enable = true;
         plugins = [ pkgs.interception-tools-plugins.dual-function-keys ];

@@ -31,15 +31,6 @@
   services = {
     dbus.packages = with pkgs; [ gnome3.dconf gcr ];
     fwupd.enable = true;
-    greetd = {
-      enable = true;
-      restart = true;
-      settings = {
-        default_session = {
-          command = "${pkgs.greetd.tuigreet}/bin/tuigreet --remember --time --asterisks --cmd sway";
-        };
-      };
-    };
     kmscon = {
       enable = true;
       hwRender = true;
@@ -58,6 +49,31 @@
     ];
     udisks2.enable = true;
   };
+
+  programs.sway = {
+    enable = true;
+    wrapperFeatures.gtk = true;
+  };
+  services.greetd = {
+    enable = true;
+    restart = true;
+    settings = {
+      default_session = {
+        # command = "${pkgs.greetd.tuigreet}/bin/tuigreet --remember --time --asterisks --cmd sway";
+        command = "sway --config /etc/sway-greetd.conf";
+      };
+    };
+  };
+  environment.etc."sway-greetd.conf".text = ''
+    output DP-1 scale 1.5
+    output eDP-1 scale 2
+    bindsym Mod4+q exec swaynag \
+      -t warning \
+      -b 'Poweroff' 'systemctl poweroff' \
+      -b 'Reboot' 'systemctl reboot'
+    seat seat0 xcursor_theme Adwaita
+    exec "GTK_THEME=Adwaita:dark ${pkgs.greetd.gtkgreet}/bin/gtkgreet -l -c sway; swaymsg exit"
+  '';
 
   environment.systemPackages = with pkgs; [
     git
