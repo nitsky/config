@@ -30,16 +30,10 @@
     postgresql
     python39
     ripgrep
-    rust-analyzer
-    rustup
     tokei
     unzip
     vim
     wally-cli
     xh
   ];
-  home.file.".cargo/config.toml".text = ''
-    [target.x86_64-unknown-linux-gnu]
-    rustflags = ["-C", "link-arg=-fuse-ld=lld"]
-  '';
 }

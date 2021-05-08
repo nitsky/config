@@ -23,6 +23,7 @@
       win = {
         host = "win";
         hostname = "100.98.218.54";
+        user = "Administrator";
       };
     };
   };
