@@ -18,7 +18,7 @@
       };
       vader = {
         host = "vader";
-        hostname = "100.103.90.38";
+        hostname = "100.87.20.70";
       };
       win = {
         host = "win";
