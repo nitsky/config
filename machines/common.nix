@@ -65,9 +65,10 @@
     };
   };
   environment.etc."sway-greetd.conf".text = ''
+    exec systemctl --user import-environment
     output DP-1 scale 1.5
     output eDP-1 scale 2
-    bindsym Mod4+q exec swaynag \
+    bindsym mod4+q exec swaynag \
       -t warning \
       -b 'Poweroff' 'systemctl poweroff' \
       -b 'Reboot' 'systemctl reboot'

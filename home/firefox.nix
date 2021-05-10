@@ -15,6 +15,7 @@ user:
         "browser.newtabpage.activity-stream.showSearch" = false;
         "browser.sessionstore.resume_session_once" = true;
         "browser.shell.checkDefaultBrowser" = false;
+        "browser.toolbars.bookmarks.visibility" = "never";
         "browser.warnOnQuit" = false;
         "devtools.theme" = "dark";
         "gfx.webrender.all" = true;

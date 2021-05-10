@@ -10,6 +10,7 @@ user:
     ./htop.nix
     ./lf
     ./nvim
+    ./pass.nix
     (import ./pim.nix user)
     ./programs.nix
     ./rust.nix
