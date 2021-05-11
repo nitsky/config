@@ -6,6 +6,18 @@
 
   nixpkgs.config.allowUnfree = true;
 
+  nix.binaryCaches = lib.mkForce [
+    "https://cache.nixos.org/"
+    "http://babyshark:5000"
+  ];
+  nix.binaryCachePublicKeys = [
+    "babyshark:oaz6/nqu5aJkyh1TkdUHcRH1ggGDgrjQs37NmQLF5ug="
+  ];
+  services.nix-serve = {
+    enable = true;
+    secretKeyFile = "/etc/nix-serve.private.key";
+  };
+
   security.sudo.wheelNeedsPassword = false;
 
   networking = {
@@ -36,7 +48,10 @@
       hwRender = true;
       extraOptions = "--font-dpi=192";
     };
-    openssh.enable = true;
+    openssh = {
+      enable = true;
+      openFirewall = false;
+    };
     pcscd.enable = true;
     pipewire = {
       enable = true;
@@ -105,6 +120,7 @@
   virtualisation = {
     podman = {
       enable = true;
+      dockerCompat = true;
     };
   };
 

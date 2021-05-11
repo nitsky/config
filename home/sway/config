@@ -95,12 +95,27 @@ bindsym XF86MonBrightnessDown exec brightnessctl set 5%-
 # Screenshots.
 bindsym $mod+p exec screenshot
 
-# Layout control.
+# Change container level.
 bindsym $mod+u focus parent
 bindsym $mod+Shift+u focus child
+
+# Layout control.
 bindsym $mod+v splitv
 bindsym $mod+b splith
-bindsym $mod+s layout toggle splith splitv tabbed
+bindsym $mod+a layout toggle splith splitv tabbed
+
+# Move the focused container to the scratchpad.
+bindsym $mod+s move container to scratchpad
+
+# Retrieve a container from the scratchpad.
+bindsym $mod+d scratchpad show
+
+# Make the current focus floating.
+bindsym $mod+f floating toggle
+floating_modifier $mod
+
+# Make the focused container fullscreen.
+bindsym $mod+Shift+f fullscreen
 
 # Move focus.
 bindsym $mod+$left focus left
@@ -119,13 +134,6 @@ bindsym $mod+Ctrl+$left resize shrink width 240px
 bindsym $mod+Ctrl+$down resize grow height 240px
 bindsym $mod+Ctrl+$up resize shrink height 240px
 bindsym $mod+Ctrl+$right resize grow width 240px
-
-# Make the focused container fullscreen.
-bindsym $mod+f fullscreen
-
-# Make the current focus floating.
-bindsym $mod+Shift+f floating toggle
-floating_modifier $mod
 
 # Switch to the specified workspace.
 bindsym $mod+1 workspace 1

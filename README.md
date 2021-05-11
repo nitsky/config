@@ -36,3 +36,12 @@ sh <(curl -L https://nixos.org/nix/install) --darwin-use-unencrypted-nix-store-v
 nix-shell -p nix-info --run "nix-info -m"
 nix-env -iA nixpkgs.nixFlakes
 Add to /etc/nix/nix.conf: experimental-features = nix-command flakes
+
+```
+boot.initrd.luks.devices.crypt.device = "/dev/nvme0n1p2";
+nix.package = pkgs.nixUnstable;
+nix.extraOptions = ''
+  experimental-features = nix-command flakes
+'';
+environment.systemPackages = with pkgs; [ vim git ];
+```
