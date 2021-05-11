@@ -217,15 +217,8 @@
       "workbench.editor.enablePreview" = false;
       "workbench.editor.enablePreviewFromQuickOpen" = false;
       "workbench.startupEditor" = "none";
-      "rust-analyzer.checkOnSave.command" = "clippy";
       "files.insertFinalNewline" = true;
       "editor.renderFinalNewline" = false;
-      # "rust-analyzer.checkOnSave.overrideCommand" = [
-      #   "cargo"
-      #   "check"
-      #   "--message-format=json"
-      #   "--package=tangram_ui"
-      # ];
     };
   };
 }
