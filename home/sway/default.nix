@@ -102,12 +102,10 @@
         outline: none;
       }
     '';
-    "sway/wallpaper.png".source = ./wallpaper.png;
     "swaylock/config".text = ''
       color=000000FF
       daemonize
       ignore-empty-password
-      image=~/.config/sway/wallpaper.png
       scaling=fit
     '';
     "xdg-desktop-portal-wlr/config".text = ''

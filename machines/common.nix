@@ -8,7 +8,7 @@
 
   nix.binaryCaches = lib.mkForce [
     "https://cache.nixos.org/"
-    "http://babyshark:5000"
+    "http://100.100.213.21:5000"
   ];
   nix.binaryCachePublicKeys = [
     "babyshark:oaz6/nqu5aJkyh1TkdUHcRH1ggGDgrjQs37NmQLF5ug="
@@ -74,12 +74,11 @@
     restart = true;
     settings = {
       default_session = {
-        # command = "${pkgs.greetd.tuigreet}/bin/tuigreet --remember --time --asterisks --cmd sway";
-        command = "sway --config /etc/sway-greetd.conf";
+        command = "sway --config /etc/greetd/sway";
       };
     };
   };
-  environment.etc."sway-greetd.conf".text = ''
+  environment.etc."greetd/sway".text = ''
     exec systemctl --user import-environment
     output DP-1 scale 1.5
     output eDP-1 scale 2
@@ -88,7 +87,10 @@
       -b 'Poweroff' 'systemctl poweroff' \
       -b 'Reboot' 'systemctl reboot'
     seat seat0 xcursor_theme Adwaita
-    exec "GTK_THEME=Adwaita:dark ${pkgs.greetd.gtkgreet}/bin/gtkgreet -l -c sway; swaymsg exit"
+    exec "GTK_THEME=Adwaita:dark ${pkgs.greetd.gtkgreet}/bin/gtkgreet -l -s /etc/greetd/gtkgreet.css -c sway; swaymsg exit"
+  '';
+  environment.etc."greetd/gtkgreet.css".text = ''
+    window { background-color: #000000; }
   '';
 
   environment.systemPackages = with pkgs; [

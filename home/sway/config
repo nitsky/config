@@ -22,7 +22,7 @@ bindsym $mod+q exec swaymsg -t get_tree | jq '.. | select(.type?) | select(.focu
 
 # Configure the output.
 output * {
-	background ~/.config/sway/wallpaper.png fit #000000
+	background #000000 solid_color
 }
 
 output DP-1 {
