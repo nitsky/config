@@ -80,7 +80,7 @@ bindsym $mod+Return exec alacritty --class launcher --command $SHELL -c "ls /run
 
 bindsym $mod+t exec alacritty --working-directory="$(~/.config/sway/cwd.sh)"
 bindsym $mod+g exec firefox
-bindsym $mod+c exec code-insiders --enable-features=UseOzonePlatform --ozone-platform=wayland
+bindsym $mod+c exec code --enable-features=UseOzonePlatform --ozone-platform=wayland
 
 # Audio control.
 bindsym XF86AudioPlay exec playerctl play-pause

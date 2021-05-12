@@ -23,7 +23,6 @@
     htop
     hyperfine
     jq
-    lld_12
     nodejs-16_x
     nodePackages.http-server
     pavucontrol

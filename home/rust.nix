@@ -1,7 +1,8 @@
 { pkgs, ... }: {
   home.packages = with pkgs; [
-    cargo-cross
+    cargo-license
     cargo-outdated
+    lld_12
     rust-analyzer
     rustup
     trunk
