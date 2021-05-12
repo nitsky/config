@@ -8,7 +8,7 @@
 
   nix.binaryCaches = lib.mkForce [
     "https://cache.nixos.org/"
-    "http://100.100.213.21:5000"
+    "http://babyshark:5000"
   ];
   nix.binaryCachePublicKeys = [
     "babyshark:oaz6/nqu5aJkyh1TkdUHcRH1ggGDgrjQs37NmQLF5ug="
@@ -24,6 +24,12 @@
     useDHCP = false;
     networkmanager.enable = true;
     firewall.trustedInterfaces = ["tailscale0"];
+    hosts = {
+      "100.100.213.21" = [ "babyshark" ];
+      "100.89.221.9" = [ "mba" ];
+      "100.121.28.94" = [ "snowflake" ];
+      "100.87.20.70" = [ "vader" ];
+    };
   };
 
   i18n.defaultLocale = "en_US.UTF-8";
