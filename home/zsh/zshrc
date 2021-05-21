@@ -146,24 +146,6 @@ alias t='fd'
 alias tree='exa -T'
 alias u='cd ..'
 
-alias ga='git add --all'
-alias gbl='git branch -avv'
-alias gcamend='git commit --amend --no-edit'
-alias gcm='git add --all && git commit --message'
-alias gd='git diff'
-alias gds='git diff --staged'
-alias gl='git log --all --graph --decorate --abbrev-commit --format=format:"%C(bold blue)%h%C(reset) - %C(bold white)%an%C(reset) %C(bold yellow)%d%C(reset)%n%C(bold cyan)%aD%C(reset) - %C(bold green)(%ar)%C(reset)%n%C(white)%s%C(reset)"'
-alias gp='git pull --all --rebase'
-alias gps='git push'
-alias gpsa='git push --set-upstream --all'
-alias gpsf='git push --force-with-lease --set-upstream'
-alias gs='git status --short --branch'
-alias gst='git stash --include-untracked'
-alias gstc='git stash clear'
-alias gstl='git stash list'
-alias gstp='git stash pop --quiet'
-alias gsts='git stash show -p'
-
 function pmsave() {
 	pm -Qe | awk '{print $1}' > ~/.packages
 }
