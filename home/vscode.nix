@@ -108,6 +108,41 @@
       }
     ];
     userSettings = {
+      "editor.codeActionsOnSave" = { "source.fixAll" = true; };
+      "editor.codeLens" = false;
+      "editor.find.cursorMoveOnType" = false;
+      "editor.fontSize" = 16;
+      "editor.formatOnSave" = true;
+      "editor.minimap.enabled" = false;
+      "editor.multiCursorModifier" = "ctrlCmd";
+      "editor.renderFinalNewline" = false;
+      "editor.renderWhitespace" = "all";
+      "editor.scrollBeyondLastLine" = false;
+      "editor.tabSize" = 2;
+      "editor.wordWrap" = "wordWrapColumn";
+      "editor.wordWrapColumn" = 100;
+      "explorer.confirmDelete" = false;
+      "explorer.confirmDragAndDrop" = false;
+      "extensions.autoCheckUpdates" = true;
+      "extensions.ignoreRecommendations" = true;
+      "files.insertFinalNewline" = true;
+      "files.trimFinalNewlines" = true;
+      "files.trimTrailingWhitespace" = true;
+      "git.enableCommitSigning" = true;
+      "javascript.updateImportsOnFileMove.enabled" = "always";
+      "liveshare.showVerboseNotifications" = false;
+      "rust-analyzer.inlayHints.enable" = false;
+      "typescript.updateImportsOnFileMove.enabled" = "always";
+      "update.mode" = "none";
+      "vim.sneak" = true;
+      "vim.useSystemClipboard" = true;
+      "window.menuBarVisibility" = "toggle";
+      "window.zoomLevel" = 1;
+      "workbench.activityBar.visible" = false;
+      "workbench.colorTheme" = "Tangram";
+      "workbench.editor.enablePreview" = false;
+      "workbench.editor.enablePreviewFromQuickOpen" = false;
+      "workbench.startupEditor" = "none";
       "[javascript]" = {
         "editor.defaultFormatter" = "esbenp.prettier-vscode";
       };
@@ -123,31 +158,6 @@
       "[typescriptreact]" = {
         "editor.defaultFormatter" = "esbenp.prettier-vscode";
       };
-      "editor.codeActionsOnSave" = {
-        "source.fixAll" = true;
-      };
-      "editor.codeLens" = false;
-      "editor.find.cursorMoveOnType" = false;
-      "editor.fontSize" = 16;
-      "editor.formatOnSave" = true;
-      "editor.minimap.enabled" = false;
-      "editor.multiCursorModifier" = "ctrlCmd";
-      "editor.renderWhitespace" = "all";
-      "editor.scrollBeyondLastLine" = false;
-      "editor.tabSize" = 2;
-      "editor.wordWrap" = "wordWrapColumn";
-      "editor.wordWrapColumn" = 100;
-      "explorer.confirmDelete" = false;
-      "explorer.confirmDragAndDrop" = false;
-      "extensions.ignoreRecommendations" = true;
-      "files.trimFinalNewlines" = true;
-      "files.trimTrailingWhitespace" = true;
-      "git.enableCommitSigning" = true;
-      "javascript.updateImportsOnFileMove.enabled" = "always";
-      "liveshare.showVerboseNotifications" = false;
-      "rust-analyzer.inlayHints.enable" = false;
-      "terminal.integrated.shell.linux" = "/usr/bin/zsh";
-      "typescript.updateImportsOnFileMove.enabled" = "always";
       "vim.normalModeKeyBindings" = [
         {
           "after" = ["}"];
@@ -174,8 +184,6 @@
           "commands" = ["redo"];
         }
       ];
-      "vim.sneak" = true;
-      "vim.useSystemClipboard" = true;
       "vim.visualModeKeyBindings" = [
         {
           "after" = ["}"];
@@ -200,15 +208,6 @@
           "before" = ["p"];
         }
       ];
-      "window.menuBarVisibility" = "toggle";
-      "window.zoomLevel" = 1;
-      "workbench.activityBar.visible" = false;
-      "workbench.colorTheme" = "Tangram";
-      "workbench.editor.enablePreview" = false;
-      "workbench.editor.enablePreviewFromQuickOpen" = false;
-      "workbench.startupEditor" = "none";
-      "files.insertFinalNewline" = true;
-      "editor.renderFinalNewline" = false;
     };
   };
 }
