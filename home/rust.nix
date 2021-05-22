@@ -1,5 +1,6 @@
 { pkgs, ... }: {
   home.packages = with pkgs; [
+    cargo-expand
     cargo-license
     cargo-outdated
     lld_12
