@@ -45,21 +45,14 @@
         };
       };
       key_bindings = [
-      { key = "C"; mods = "Control"; action = "Copy"; }
-      { key = "V"; mods = "Control"; action = "Paste"; }
-      { key = "Key0"; mods = "Control"; action = "ResetFontSize"; }
-      { key = "Minus"; mods = "Control"; action = "DecreaseFontSize"; }
-      { key = "Equals"; mods = "Control"; action = "IncreaseFontSize"; }
-      { key = "Minus"; mods = "Control"; action = "DecreaseFontSize"; }
-      { key = "Plus"; mods = "Control"; action = "IncreaseFontSize"; }
+        { key = "C"; mods = "Control"; action = "Copy"; }
+        { key = "V"; mods = "Control"; action = "Paste"; }
+        { key = "Key0"; mods = "Control"; action = "ResetFontSize"; }
+        { key = "Minus"; mods = "Control"; action = "DecreaseFontSize"; }
+        { key = "Equals"; mods = "Control"; action = "IncreaseFontSize"; }
+        { key = "Minus"; mods = "Control"; action = "DecreaseFontSize"; }
+        { key = "Plus"; mods = "Control"; action = "IncreaseFontSize"; }
       ];
-      mouse = {
-        url = {
-          launcher = {
-            program = "firefox";
-          };
-        };
-      };
     };
   };
 }
