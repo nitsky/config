@@ -19,7 +19,7 @@
     fortune
     gcc
     gnome3.adwaita-icon-theme
-    gopass
+    hexyl
     htop
     hyperfine
     jq
@@ -27,6 +27,7 @@
     nodePackages.http-server
     pavucontrol
     postgresql
+    pup
     python39
     ripgrep
     tokei

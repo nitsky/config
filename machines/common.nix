@@ -86,6 +86,7 @@
   };
   environment.etc."greetd/sway".text = ''
     exec systemctl --user import-environment
+    output * background #000000 solid_color
     output DP-1 scale 1.5
     output eDP-1 scale 2
     bindsym mod4+q exec swaynag \
