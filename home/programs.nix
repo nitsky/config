@@ -4,13 +4,7 @@
     awscli2
     binutils
     (pkgs.chromium.override {
-      commandLineArgs = ''
-        --enable-features=UseOzonePlatform
-        --ozone-platform=wayland
-        --enable-features=VaapiVideoDecoder
-        --force-dark-mode
-        --enable-features=WebUIDarkMode
-      '';
+      commandLineArgs = "--enable-features=UseOzonePlatform --ozone-platform=wayland --force-dark-mode";
     })
     cowsay
     dnsutils
@@ -25,6 +19,7 @@
     jq
     nodejs-16_x
     nodePackages.http-server
+    obs
     pavucontrol
     postgresql
     pup
