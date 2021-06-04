@@ -19,7 +19,7 @@
     jq
     nodejs-16_x
     nodePackages.http-server
-    obs
+    obs-studio
     pavucontrol
     postgresql
     pup

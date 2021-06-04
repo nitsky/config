@@ -46,7 +46,10 @@ inputs: inputs.nixpkgs.lib.nixosSystem {
         };
         loader = {
           efi.canTouchEfiVariables = true;
-          systemd-boot.enable = true;
+          systemd-boot = {
+            enable = true;
+            configurationLimit = 10;
+          };
         };
       };
       fileSystems."/boot" = {
