@@ -1,7 +1,7 @@
 {
   inputs = {
     nixpkgs = {
-      url = "github:nixos/nixpkgs/nixos-unstable-small";
+      url = "github:nixos/nixpkgs/15679e7c2017a3f23b5f6a54b00695768968321f";
     };
     home-manager = {
       url = "github:nix-community/home-manager";
