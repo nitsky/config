@@ -17,6 +17,7 @@
     htop
     hyperfine
     jq
+    mpv
     nodejs-16_x
     nodePackages.http-server
     obs-studio
