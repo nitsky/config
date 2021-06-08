@@ -65,7 +65,7 @@ bar {
 	}
 	font 16px
 	position top
-	status_command "i3status-rs ~/.config/i3status-rust/config-top.toml"
+	# status_command "i3status-rs ~/.config/i3status-rust/config-top.toml"
 }
 
 #                       border  bg      text    indi    child
