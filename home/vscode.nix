@@ -131,6 +131,7 @@
       "git.enableCommitSigning" = true;
       "javascript.updateImportsOnFileMove.enabled" = "always";
       "liveshare.showVerboseNotifications" = false;
+      "remote.SSH.useLocalServer" = false;
       "rust-analyzer.inlayHints.enable" = false;
       "typescript.updateImportsOnFileMove.enabled" = "always";
       "update.mode" = "none";

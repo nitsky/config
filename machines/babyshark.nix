@@ -11,12 +11,14 @@ inputs: inputs.nixpkgs.lib.nixosSystem {
         createHome = true;
         extraGroups = [ "wheel" ];
         shell = pkgs.zsh;
+        openssh.authorizedKeys.keyFiles = [ ../nitsky.public.rsa ../isabella.public.rsa ];
       };
       users.users.isabella = {
         isNormalUser = true;
         createHome = true;
         extraGroups = [ "wheel" ];
         shell = pkgs.zsh;
+        openssh.authorizedKeys.keyFiles = [ ../nitsky.public.rsa ../isabella.public.rsa ];
       };
       boot = {
         blacklistedKernelModules = [ "psmouse" ];
