@@ -31,5 +31,6 @@
     vim
     wally-cli
     xh
+    zig
   ];
 }

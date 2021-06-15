@@ -5,8 +5,10 @@
     dirHashes = {};
     initExtraFirst = builtins.readFile ./zshrc + builtins.readFile ../lf/icons;
   };
-  programs.direnv.enable = true;
-  programs.direnv.enableNixDirenvIntegration = true;
+  programs.direnv = {
+    enable = true;
+    nix-direnv.enable = true;
+  };
   programs.zsh.envExtra = ''
     export DIRENV_LOG_FORMAT=""
   '';
