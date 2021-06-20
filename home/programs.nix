@@ -8,6 +8,7 @@
     })
     cowsay
     dnsutils
+    elixir
     exa
     fd
     fortune
