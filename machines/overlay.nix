@@ -1,6 +1,6 @@
 inputs: {
-  nixpkgs.overlays = [
-    inputs.nur.overlay
-    inputs.neovim-nightly-overlay.overlay
+  nixpkgs.overlays = with inputs; [
+    fenix.overlay
+    neovim-nightly-overlay.overlay
   ];
 }

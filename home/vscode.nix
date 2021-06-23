@@ -4,7 +4,7 @@
     extensions = [
       pkgs.vscode-extensions.bbenoist.Nix
       pkgs.vscode-extensions.esbenp.prettier-vscode
-      pkgs.vscode-extensions.matklad.rust-analyzer
+      pkgs.vscode-extensions.matklad.rust-analyzer-nightly
       pkgs.vscode-extensions.ms-vscode-remote.remote-ssh
       pkgs.vscode-extensions.vscodevim.vim
     ];
