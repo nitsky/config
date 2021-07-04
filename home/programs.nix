@@ -1,4 +1,4 @@
-{ pkgs, ... }: {
+{ inputs, pkgs, ... }: {
   home.packages = with pkgs; [
     aerc
     awscli2
@@ -13,10 +13,12 @@
     fd
     fortune
     gcc
+    gh
     gnome3.adwaita-icon-theme
     hexyl
     htop
     hyperfine
+    inputs.tangram.defaultPackage.x86_64-linux
     jq
     mpv
     nodejs-16_x
@@ -25,7 +27,7 @@
     pavucontrol
     postgresql
     pup
-    python39
+    python3
     ripgrep
     tokei
     unzip

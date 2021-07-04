@@ -1,4 +1,4 @@
-{ pkgs, ... }:
+{ inputs, pkgs, ... }:
 import ../home {
   username = "nitsky";
   git = {

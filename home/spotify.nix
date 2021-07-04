@@ -8,6 +8,9 @@
     notify = true
     use_nerdfont = true
 
+    [keybindings]
+    "Ctrl+q" = "quit"
+
     [theme]
     background = "#111111"
     primary = "#bbbbbb"
@@ -20,8 +23,9 @@
     highlight_bg = "#111111"
     error = "#bbbbbb"
     error_bg = "#ff453a"
-    statusbar = "#bbbbbb"
     statusbar_progress = "#0a84ff"
+    statusbar_progress_bg = "#111111"
+    statusbar = "#bbbbbb"
     statusbar_bg = "#232323"
     cmdline = "#bbbbbb"
     cmdline_bg = "#111111"

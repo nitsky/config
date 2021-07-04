@@ -1,3 +1,4 @@
+inputs:
 { config, lib, pkgs, ... }: {
   nix.package = pkgs.nixUnstable;
   nix.extraOptions = ''
@@ -8,9 +9,11 @@
 
   nix.binaryCaches = lib.mkForce [
     "https://cache.nixos.org/"
+    "https://nix-community.cachix.org"
     "http://babyshark:5000"
   ];
   nix.binaryCachePublicKeys = [
+    "nix-community.cachix.org-1:mB9FSh9qf2dCimDSUo8Zy7bkq5CX+/rkCWyvRCYg3Fs="
     "babyshark:oaz6/nqu5aJkyh1TkdUHcRH1ggGDgrjQs37NmQLF5ug="
   ];
   services.nix-serve = {
@@ -103,6 +106,7 @@
   environment.systemPackages = with pkgs; [
     git
     sof-firmware
+    vim
   ];
 
   programs.bash.promptInit = ''

@@ -1,7 +1,7 @@
 {
   inputs = {
     nixpkgs = {
-      url = "github:nixos/nixpkgs/nixos-unstable";
+      url = "github:nixos/nixpkgs/nixos-unstable-small";
     };
     home-manager = {
       url = "github:nix-community/home-manager";
@@ -11,8 +11,8 @@
       url = "github:nix-community/fenix";
       inputs.nixpkgs.follows = "nixpkgs";
     };
-    neovim-nightly-overlay ={
-      url = "github:nix-community/neovim-nightly-overlay";
+    tangram = {
+      url = "github:tangramxyz/tangram";
       inputs.nixpkgs.follows = "nixpkgs";
     };
   };
