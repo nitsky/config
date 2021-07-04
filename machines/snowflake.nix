@@ -3,7 +3,7 @@ inputs: inputs.nixpkgs.lib.nixosSystem {
   modules = [
     { system.stateVersion = "20.09"; }
     (import ./overlay.nix inputs)
-    ./common.nix
+    (import ./common.nix inputs)
     ({ pkgs, lib, ... }: {
       networking.hostName = "snowflake";
       users.users.nitsky = {
@@ -102,6 +102,9 @@ inputs: inputs.nixpkgs.lib.nixosSystem {
     inputs.home-manager.nixosModules.home-manager {
       home-manager.useGlobalPkgs = true;
       home-manager.useUserPackages = true;
+      home-manager.extraSpecialArgs = {
+        inherit inputs;
+      };
       home-manager.users.nitsky = { ... }: {
         home.stateVersion = "21.05";
         imports = [ ../users/nitsky.nix ];
