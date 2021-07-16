@@ -10,10 +10,12 @@ inputs:
   nix.binaryCaches = lib.mkForce [
     "https://cache.nixos.org/"
     "https://nix-community.cachix.org"
+    "https://tangram.cachix.org"
     "http://babyshark:5000"
   ];
   nix.binaryCachePublicKeys = [
     "nix-community.cachix.org-1:mB9FSh9qf2dCimDSUo8Zy7bkq5CX+/rkCWyvRCYg3Fs="
+    "tangram.cachix.org-1:NQ5Uzhhbrgi4R6A0JoljrMg8X4a2doTv3WrSnajJANs="
     "babyshark:oaz6/nqu5aJkyh1TkdUHcRH1ggGDgrjQs37NmQLF5ug="
   ];
   services.nix-serve = {
