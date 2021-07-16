@@ -16,15 +16,19 @@
   gtk = {
     enable = true;
     theme.name = "Adwaita";
+    font.name = "JetBrainsMono Nerd Font";
     gtk3 = {
       extraCss = ''
         * { outline-width: 0px; }
       '';
       extraConfig = {
+        gtk-font-name = "JetBrainsMono Nerd Font 16";
         gtk-application-prefer-dark-theme = true;
       };
     };
   };
+
+  fonts.fontconfig.enable = true;
 
   home.packages = with pkgs; [
     brightnessctl

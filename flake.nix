@@ -8,7 +8,7 @@
       inputs.nixpkgs.follows = "nixpkgs";
     };
     fenix = {
-      url = "github:nix-community/fenix";
+      url = "github:nix-community/fenix/597bc19591ffb54c5f633e6afa0d64a70056e401";
       inputs.nixpkgs.follows = "nixpkgs";
     };
     tangram = {

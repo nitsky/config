@@ -8,6 +8,7 @@
     })
     cmake
     cowsay
+    deno
     dnsutils
     elixir
     exa
