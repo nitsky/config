@@ -42,7 +42,7 @@ inputs: inputs.nixpkgs.lib.nixosSystem {
         kernelParams = [
           "quiet"
           "udev.log_priority=3"
-        ] ;
+        ];
         kernel.sysctl = {
           "fs.inotify.max_user_watches" = "524288";
         };
