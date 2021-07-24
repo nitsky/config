@@ -41,7 +41,7 @@ inputs:
   time.timeZone = "America/New_York";
   documentation.doc.enable = false;
 
-  sound.enable = true;
+  sound.enable = false;
   hardware = {
     enableRedistributableFirmware = true;
     keyboard.zsa.enable = true;
