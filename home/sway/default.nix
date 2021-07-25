@@ -114,11 +114,10 @@
     '';
     "xdg-desktop-portal-wlr/config".text = ''
       [screencast]
-      output_name=eDP-1
-      exec_before="notify-send 'Screen sharing started.'"
-      exec_after="notify-send 'Screen sharing ended.'"
+      exec_before=notify-send 'Screen sharing started.'
+      exec_after=notify-send 'Screen sharing ended.'
       chooser_type=dmenu
-      chooser_cmd="wofi --dmenu"
+      chooser_cmd=wofi --dmenu
     '';
   };
 }
