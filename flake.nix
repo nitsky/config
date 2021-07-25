@@ -8,12 +8,10 @@
       inputs.nixpkgs.follows = "nixpkgs";
     };
     fenix = {
-      url = "github:nix-community/fenix/597bc19591ffb54c5f633e6afa0d64a70056e401";
-      inputs.nixpkgs.follows = "nixpkgs";
+      url = "github:nix-community/fenix";
     };
     tangram = {
-      url = "github:tangramxyz/tangram/ede1310e1adf1b16e017651d9437c60127f2f8a6";
-      inputs.nixpkgs.follows = "nixpkgs";
+      url = "github:tangramxyz/tangram/v0.6.0";
     };
   };
   outputs = inputs: {
