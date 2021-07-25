@@ -16,6 +16,7 @@
   };
   outputs = inputs: {
     nixosConfigurations = {
+      babybeluga = import ./machines/babybeluga.nix inputs;
       babyshark = import ./machines/babyshark.nix inputs;
       snowflake = import ./machines/snowflake.nix inputs;
       vader = import ./machines/vader.nix inputs;

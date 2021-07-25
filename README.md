@@ -23,7 +23,22 @@ sudo mkdir /mnt/boot
 sudo mount /dev/nvme0n1p1 /mnt/boot
 sudo mkdir /mnt/home
 sudo mount /dev/vg/home /mnt
-sudo nixos-install --flake github.com/nitsky/config#HOST
+```
+
+Edit `/etc/nixos/configuration.nix`:
+
+```
+boot.kernelPackages = pkgs.linuxPackages_latest;
+boot.initrd.luks.devices.crypt.device = "/dev/nvme0n1p2";
+nix.package = pkgs.nixUnstable;
+nix.extraOptions = ''
+  experimental-features = nix-command flakes
+'';
+environment.systemPackages = with pkgs; [ vim git ];
+```
+
+```
+sudo nixos-install
 ```
 
 macOS Installation instructions:
@@ -35,15 +50,5 @@ Install Rectangle and set the left half, right half, and maximize rules.
 sh <(curl -L https://nixos.org/nix/install) --darwin-use-unencrypted-nix-store-volume --daemon
 nix-shell -p nix-info --run "nix-info -m"
 nix-env -iA nixpkgs.nixFlakes
-```
-
-Add to /etc/nix/nix.conf: `experimental-features = nix-command flakes`
-
-```
-boot.initrd.luks.devices.crypt.device = "/dev/nvme0n1p2";
-nix.package = pkgs.nixUnstable;
-nix.extraOptions = ''
-  experimental-features = nix-command flakes
-'';
-environment.systemPackages = with pkgs; [ vim git ];
+echo "experimental-features = nix-command flakes" >> /etc/nix/nix.conf
 ```

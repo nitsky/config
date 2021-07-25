@@ -23,14 +23,7 @@ bindsym $mod+q exec swaymsg -t get_tree | jq '.. | select(.type?) | select(.focu
 # Configure the output.
 output * {
 	background #000000 solid_color
-}
-
-output DP-1 {
 	scale 1.5
-}
-
-output eDP-1 {
-	scale 2
 }
 
 # Make sure the window under the cursor is always focused.
