@@ -51,11 +51,26 @@
     bars.top = {
       blocks = [
         {
+          block = "net";
+          format = " {ssid}";
+        }
+        {
           block = "sound";
+          show_volume_when_muted = true;
+        }
+        {
+          block = "backlight";
+          invert_icons = true;
+        }
+        {
+          block = "battery";
+          format = " {percentage}";
+          allow_missing = true;
+          hide_missing = true;
         }
         {
           block = "time";
-          interval = 60;
+          interval = 1;
           format = "%a %m/%d %R";
         }
       ];
