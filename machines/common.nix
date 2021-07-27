@@ -86,6 +86,7 @@ inputs:
     settings = {
       default_session = {
         command = "sway --config /etc/greetd/sway";
+        # command = "${pkgs.greetd.tuigreet}/bin/tuigreet --remember --time --asterisks --cmd sway";
       };
     };
   };
@@ -124,9 +125,9 @@ inputs:
     ];
     fontconfig = {
       defaultFonts = {
-        monospace = [ "JetBrainsMono Nerd Font" ];
-        sansSerif = [ "JetBrainsMono Nerd Font" ];
-        serif = [ "JetBrainsMono Nerd Font" ];
+        monospace = [ "JetBrainsMono Nerd Font" "Noto Color Emoji" ];
+        sansSerif = [ "JetBrainsMono Nerd Font" "Noto Color Emoji" ];
+        serif = [ "JetBrainsMono Nerd Font" "Noto Color Emoji" ];
       };
     };
   };

@@ -16,13 +16,11 @@
   gtk = {
     enable = true;
     theme.name = "Adwaita";
-    font.name = "JetBrainsMono Nerd Font";
     gtk3 = {
       extraCss = ''
         * { outline-width: 0px; }
       '';
       extraConfig = {
-        gtk-font-name = "JetBrainsMono Nerd Font 16";
         gtk-application-prefer-dark-theme = true;
       };
     };
@@ -45,39 +43,6 @@
     wofi
     xdg-utils
   ];
-
-  programs.i3status-rust = {
-    enable = true;
-    bars.top = {
-      blocks = [
-        {
-          block = "net";
-          format = " {ssid}";
-        }
-        {
-          block = "sound";
-          show_volume_when_muted = true;
-        }
-        {
-          block = "backlight";
-          invert_icons = true;
-        }
-        {
-          block = "battery";
-          format = " {percentage}";
-          allow_missing = true;
-          hide_missing = true;
-        }
-        {
-          block = "time";
-          interval = 1;
-          format = "%a %m/%d %R";
-        }
-      ];
-      icons = "awesome5";
-      theme = "native";
-    };
-  };
 
   programs.mako = {
     enable = true;
@@ -109,7 +74,6 @@
     "wofi/style.css".text = ''
       #window {
         background: #333333;
-        font-family: JetBrainsMono Nerd Font;
       }
       #input {
         background: #333333;
