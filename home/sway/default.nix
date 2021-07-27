@@ -44,6 +44,40 @@
     xdg-utils
   ];
 
+  programs.i3status-rust = {
+    enable = true;
+    bars.top = {
+      blocks = [
+        {
+          block = "net";
+          interval = 1;
+          format = "{ssid}";
+        }
+        {
+          block = "sound";
+          show_volume_when_muted = true;
+        }
+        {
+          block = "backlight";
+        }
+        {
+          block = "battery";
+          interval = 1;
+          format = "{percentage}";
+          allow_missing = true;
+          hide_missing = true;
+        }
+        {
+          block = "time";
+          interval = 1;
+          format = "%a %m/%d %R";
+        }
+      ];
+      icons = "material-nf";
+      theme = "native";
+    };
+  };
+
   programs.mako = {
     enable = true;
     defaultTimeout = 1000;
@@ -65,6 +99,10 @@
     "sway/choose_output.sh" = {
       executable = true;
       source = ./choose_output.sh;
+    };
+    "sway/emoji.sh" = {
+      executable = true;
+      source = ./emoji.sh;
     };
     "wofi/config".text = ''
       prompt=
@@ -100,3 +138,19 @@
     '';
   };
 }
+
+#       backlight_empty = "";
+#       backlight_1 = "";
+#       backlight_2 = "";
+#       backlight_3 = "";
+#       backlight_4 = "";
+#       backlight_5 = "";
+#       backlight_6 = "";
+#       backlight_7 = "";
+#       backlight_8 = "";
+#       backlight_9 = "";
+#       backlight_10 = "";
+#       backlight_11 = "";
+#       backlight_12 = "";
+#       backlight_13 = "";
+#       backlight_full = "";

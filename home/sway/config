@@ -70,6 +70,7 @@ default_border pixel
 # Launcher.
 for_window [app_id="launcher"] focus, floating enabled
 bindsym $mod+Return exec alacritty --class launcher --command $SHELL -c "ls /run/current-system/sw/bin/ /etc/profiles/per-user/$USER/bin/ | fzf | xargs -r swaymsg exec"
+bindsym $mod+e exec alacritty --class launcher --command $SHELL -c "~/.config/sway/emoji.sh"
 
 bindsym $mod+t exec alacritty --working-directory="$(~/.config/sway/cwd.sh)"
 bindsym $mod+g exec firefox

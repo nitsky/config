@@ -30,6 +30,7 @@ inputs:
     networkmanager.enable = true;
     firewall.trustedInterfaces = ["tailscale0"];
     hosts = {
+      "100.94.50.82" = [ "babybeluga" ];
       "100.100.213.21" = [ "babyshark" ];
       "100.89.221.9" = [ "mba" ];
       "100.121.28.94" = [ "snowflake" ];

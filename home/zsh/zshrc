@@ -132,10 +132,10 @@ export PGUSER=postgres
 
 # aliases
 alias d='trash'
-alias dotfiles='git --git-dir ~/.dotfiles --work-tree ~/'
 alias e='nvim'
 alias f='lf'
 alias g='rg'
+alias emoji='~/.config/sway/emoji.sh'
 alias http='xh'
 alias mail='aerc'
 alias open='xdg-open'
