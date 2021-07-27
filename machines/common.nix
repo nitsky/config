@@ -80,6 +80,9 @@ inputs:
   programs.sway = {
     enable = true;
     wrapperFeatures.gtk = true;
+    extraPackages = with pkgs; [
+      gnome3.adwaita-icon-theme
+    ];
   };
   services.greetd = {
     enable = true;
@@ -87,7 +90,6 @@ inputs:
     settings = {
       default_session = {
         command = "sway --config /etc/greetd/sway";
-        # command = "${pkgs.greetd.tuigreet}/bin/tuigreet --remember --time --asterisks --cmd sway";
       };
     };
   };
