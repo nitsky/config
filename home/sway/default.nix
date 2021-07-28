@@ -1,4 +1,4 @@
-{ pkgs, ... }: {
+{ pkgs, hostname, ... }: {
 
   wayland.windowManager.sway = {
     enable = true;
@@ -47,16 +47,7 @@
   programs.i3status-rust = {
     enable = true;
     bars.top = {
-      blocks = [
-        {
-          block = "net";
-          interval = 1;
-          format = "{ssid}";
-        }
-        {
-          block = "sound";
-          show_volume_when_muted = true;
-        }
+      blocks = (if (hostname == "babybeluga") then [
         {
           block = "backlight";
         }
@@ -66,6 +57,18 @@
           format = "{percentage}";
           allow_missing = true;
           hide_missing = true;
+        }
+      ] else [])
+      ++
+      [
+        {
+          block = "net";
+          format = "";
+          interval = 1;
+        }
+        {
+          block = "sound";
+          show_volume_when_muted = true;
         }
         {
           block = "time";
@@ -138,19 +141,3 @@
     '';
   };
 }
-
-#       backlight_empty = "";
-#       backlight_1 = "";
-#       backlight_2 = "";
-#       backlight_3 = "";
-#       backlight_4 = "";
-#       backlight_5 = "";
-#       backlight_6 = "";
-#       backlight_7 = "";
-#       backlight_8 = "";
-#       backlight_9 = "";
-#       backlight_10 = "";
-#       backlight_11 = "";
-#       backlight_12 = "";
-#       backlight_13 = "";
-#       backlight_full = "";

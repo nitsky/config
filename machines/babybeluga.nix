@@ -103,6 +103,7 @@ inputs: inputs.nixpkgs.lib.nixosSystem {
       home-manager.useGlobalPkgs = true;
       home-manager.useUserPackages = true;
       home-manager.extraSpecialArgs = {
+        hostname = "babybeluga";
         inherit inputs;
       };
       home-manager.users.nitsky = { ... }: {

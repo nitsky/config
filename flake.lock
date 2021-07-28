@@ -6,11 +6,11 @@
         "rust-analyzer-src": "rust-analyzer-src"
       },
       "locked": {
-        "lastModified": 1627179921,
-        "narHash": "sha256-iqyRzu9N7Toq6y4UryR+eku/qmg92f2gitiOupcrAr0=",
+        "lastModified": 1627353019,
+        "narHash": "sha256-uXcO1UYdZZDzf5x2YLnwEowz/7ZXWQ6XOXoc9LmV1OE=",
         "owner": "nix-community",
         "repo": "fenix",
-        "rev": "4c57bd735d39f8a3701d3ed90d7c41a6dc4e3559",
+        "rev": "568807952c1bb1fa59e3526c329b4a6cc4749f67",
         "type": "github"
       },
       "original": {
@@ -62,11 +62,11 @@
         ]
       },
       "locked": {
-        "lastModified": 1627144340,
-        "narHash": "sha256-RzJ1fFLQ879J1okpH0WbYFY9qgHcglwVDl2bYqlRvw8=",
+        "lastModified": 1627394390,
+        "narHash": "sha256-f15pTRk9dKrs+xQOM2CK6INA61qriExpOsYwcvShM48=",
         "owner": "nix-community",
         "repo": "home-manager",
-        "rev": "0423a7b40cd29aec0bb02fa30f61ffe60f5dfc19",
+        "rev": "47ad3655ec804ce250f391567ea57e7eb1bbbdf7",
         "type": "github"
       },
       "original": {
@@ -134,11 +134,11 @@
     "rust-analyzer-src": {
       "flake": false,
       "locked": {
-        "lastModified": 1627151833,
-        "narHash": "sha256-io7gkKmNi5r+PCzsc8twVPrJGuXwXcGJkeAdml5+MTA=",
+        "lastModified": 1627338215,
+        "narHash": "sha256-O76nn7wggNfejawurJL7sCe2NX+XKt3Efm+hAtxsOBs=",
         "owner": "rust-analyzer",
         "repo": "rust-analyzer",
-        "rev": "2fe586a8a781f22f4e5a82037ed459fe28e87f8f",
+        "rev": "9ca81edb7ce2e301234e3dafd7ecc35d398db603",
         "type": "github"
       },
       "original": {
@@ -174,13 +174,13 @@
       "locked": {
         "lastModified": 1626743504,
         "narHash": "sha256-ePRA3vQxNXWOffwZGIvcpNcVjm894JxredrEzkSY8dI=",
-        "owner": "tangramxyz",
+        "owner": "tangramdotdev",
         "repo": "tangram",
         "rev": "89bc5f581d5357d9979573f23296e3abb1b54b73",
         "type": "github"
       },
       "original": {
-        "owner": "tangramxyz",
+        "owner": "tangramdotdev",
         "ref": "v0.6.0",
         "repo": "tangram",
         "type": "github"

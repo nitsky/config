@@ -12,7 +12,7 @@ import ../home {
     };
     work = {
       name = "Isabella Tromba";
-      email = "isabella@tangram.xyz";
+      email = "isabella@tangram.dev";
     };
   };
 } {

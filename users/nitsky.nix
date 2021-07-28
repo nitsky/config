@@ -12,7 +12,7 @@ import ../home {
     };
     work = {
       name = "David Yamnitsky";
-      email = "david@tangram.xyz";
+      email = "david@tangram.dev";
     };
   };
 } {

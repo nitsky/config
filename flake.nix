@@ -11,14 +11,13 @@
       url = "github:nix-community/fenix";
     };
     tangram = {
-      url = "github:tangramxyz/tangram/v0.6.0";
+      url = "github:tangramdotdev/tangram/v0.6.0";
     };
   };
   outputs = inputs: {
     nixosConfigurations = {
       babybeluga = import ./machines/babybeluga.nix inputs;
       babyshark = import ./machines/babyshark.nix inputs;
-      snowflake = import ./machines/snowflake.nix inputs;
       vader = import ./machines/vader.nix inputs;
     };
   };
