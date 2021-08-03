@@ -24,11 +24,13 @@
     hyperfine
     inputs.tangram.defaultPackage.x86_64-linux
     jq
+    killall
     mpv
     neovim
     nodejs-16_x
     nodePackages.http-server
     obs-studio
+    openrgb
     pavucontrol
     pkg-config
     postgresql
