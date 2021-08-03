@@ -37,6 +37,7 @@
     ripgrep
     tokei
     unzip
+    usbutils
     vim
     wally-cli
     xh

@@ -118,7 +118,10 @@ inputs:
     PS1="$ "
   '';
   programs.dconf.enable = true;
-  security.pam.services.swaylock = {};
+  security.pam.services.swaylock = {
+    fprintAuth = true;
+  };
+  services.fprintd.enable = true;
 
   fonts = {
     enableDefaultFonts = true;
