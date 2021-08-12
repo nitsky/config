@@ -1,8 +1,11 @@
-inputs: inputs.nixpkgs.lib.nixosSystem {
+inputs:
+let
   system = "x86_64-linux";
+in
+inputs.nixpkgs.lib.nixosSystem {
+  inherit system;
   modules = [
     { system.stateVersion = "20.09"; }
-    (import ./overlay.nix inputs)
     (import ./common.nix inputs)
     ({ pkgs, lib, ... }: {
       networking.hostName = "babyshark";
@@ -77,6 +80,7 @@ inputs: inputs.nixpkgs.lib.nixosSystem {
       home-manager.extraSpecialArgs = {
         hostname = "babyshark";
         inherit inputs;
+        inherit system;
       };
       home-manager.users.nitsky = { ... }: {
         home.stateVersion = "21.05";

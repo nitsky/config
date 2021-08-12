@@ -107,6 +107,8 @@ inputs:
   environment.etc."greetd/gtkgreet.css".text = ''
     window { background-color: #000000; }
   '';
+  users.users.greeter.group = "greeter";
+  users.groups.greeter = {};
 
   environment.systemPackages = with pkgs; [
     git
@@ -118,9 +120,7 @@ inputs:
     PS1="$ "
   '';
   programs.dconf.enable = true;
-  security.pam.services.swaylock = {
-    fprintAuth = true;
-  };
+  security.pam.services.swaylock = {};
   services.fprintd.enable = true;
 
   fonts = {

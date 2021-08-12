@@ -1,8 +1,11 @@
-inputs: inputs.nixpkgs.lib.nixosSystem {
+inputs:
+let
   system = "x86_64-linux";
+in
+inputs.nixpkgs.lib.nixosSystem {
+  inherit system;
   modules = [
     { system.stateVersion = "21.05"; }
-    (import ./overlay.nix inputs)
     (import ./common.nix inputs)
     ({ pkgs, lib, ... }: {
       networking.hostName = "babybeluga";
@@ -77,6 +80,10 @@ inputs: inputs.nixpkgs.lib.nixosSystem {
         vaapiIntel
       ];
       hardware.video.hidpi.enable = true;
+      programs.captive-browser = {
+        enable = true;
+        interface = "wlp170s0";
+      };
       environment.etc."dual-function-keys.yaml".text = ''
         MAPPINGS:
           - KEY: KEY_CAPSLOCK
@@ -106,6 +113,7 @@ inputs: inputs.nixpkgs.lib.nixosSystem {
       home-manager.extraSpecialArgs = {
         hostname = "babybeluga";
         inherit inputs;
+        inherit system;
       };
       home-manager.users.nitsky = { ... }: {
         home.stateVersion = "21.05";

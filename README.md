@@ -22,7 +22,7 @@ sudo mount /dev/vg/root /mnt
 sudo mkdir /mnt/boot
 sudo mount /dev/nvme0n1p1 /mnt/boot
 sudo mkdir /mnt/home
-sudo mount /dev/vg/home /mnt
+sudo mount /dev/vg/home /mnt/home
 ```
 
 Edit `/etc/nixos/configuration.nix`:

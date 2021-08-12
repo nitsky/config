@@ -1,4 +1,4 @@
-{ inputs, pkgs, ... }: {
+{ inputs, pkgs, system, ... }: {
   home.packages = with pkgs; [
     aerc
     awscli2
@@ -22,7 +22,8 @@
     hexyl
     htop
     hyperfine
-    inputs.tangram.defaultPackage.x86_64-linux
+    inputs.status.defaultPackage.${system}
+    inputs.tangram.defaultPackage.${system}
     jq
     killall
     mpv
@@ -37,6 +38,7 @@
     pup
     python3
     ripgrep
+    thunderbird
     tokei
     unzip
     usbutils

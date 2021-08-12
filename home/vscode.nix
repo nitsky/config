@@ -1,10 +1,10 @@
-{ pkgs, ... }: {
+{ pkgs, inputs, system, ... }: {
   programs.vscode = {
     enable = true;
     extensions = [
+      inputs.fenix.packages.${system}.rust-analyzer-vscode-extension
       pkgs.vscode-extensions.bbenoist.nix
       pkgs.vscode-extensions.esbenp.prettier-vscode
-      pkgs.vscode-extensions.matklad.rust-analyzer-nightly
       pkgs.vscode-extensions.ms-vscode-remote.remote-ssh
       pkgs.vscode-extensions.vscodevim.vim
     ];
