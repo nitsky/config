@@ -17,10 +17,7 @@ in {
     cargo-license
     cargo-outdated
     cargo-udeps
-<<<<<<< HEAD
     linuxPackages.perf
-=======
->>>>>>> cb9088c (hi)
     rust
     trunk
     wasm-bindgen-cli
