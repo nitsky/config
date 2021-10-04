@@ -1,7 +1,7 @@
 { inputs, pkgs, system, ... }: {
   home.packages = with pkgs; [
     aerc
-    awscli2
+    # awscli2
     binutils
     (pkgs.chromium.override {
       commandLineArgs = "--enable-features=UseOzonePlatform --ozone-platform=wayland --force-dark-mode";
@@ -22,6 +22,7 @@
     hexyl
     htop
     hyperfine
+    imv
     inputs.status.defaultPackage.${system}
     inputs.tangram.defaultPackage.${system}
     jq
@@ -46,5 +47,6 @@
     wally-cli
     xh
     zig
+    zoom-us
   ];
 }
