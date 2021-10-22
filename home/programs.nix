@@ -39,6 +39,8 @@
     pup
     python3
     ripgrep
+    sd
+    slack
     thunderbird
     tokei
     unzip

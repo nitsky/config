@@ -153,4 +153,11 @@ inputs:
     ];
     gtkUsePortal = true;
   };
+
+  # systemd.services.nix-ld = {
+  #   wantedBy = [ "multi-user.target" ];
+  #   serviceConfig = {
+  #     ExecStart = "ln -sf $NIX_CC/nix-support/dynamic-linker /lib64/ld-linux-x86-64.so.2";
+  #   };
+  # };
 }
