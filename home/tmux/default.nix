@@ -1,14 +1,3 @@
 { pkgs, ... }: {
-  programs.tmux = {
-    enable = true;
-    aggressiveResize = true;
-    baseIndex = 1;
-    customPaneNavigationAndResize = true;
-    disableConfirmationPrompt = true;
-    escapeTime = 0;
-    keyMode = "vi";
-    resizeAmount = 10;
-    terminal = "screen-256color";
-    extraConfig = builtins.readFile ./tmux.conf;
-  };
+  xdg.configFile."tmux/tmux.conf".text = builtins.readFile ./tmux.conf;
 }

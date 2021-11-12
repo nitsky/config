@@ -42,6 +42,7 @@
     sd
     slack
     thunderbird
+    tmux
     tokei
     unzip
     usbutils
