@@ -44,43 +44,6 @@
     xdg-utils
   ];
 
-  programs.i3status-rust = {
-    enable = true;
-    bars.top = {
-      blocks = (if (hostname == "babybeluga") then [
-        {
-          block = "backlight";
-        }
-        {
-          block = "battery";
-          interval = 1;
-          format = "{percentage}";
-          allow_missing = true;
-          hide_missing = true;
-        }
-      ] else [])
-      ++
-      [
-        {
-          block = "net";
-          format = "";
-          interval = 1;
-        }
-        {
-          block = "sound";
-          show_volume_when_muted = true;
-        }
-        {
-          block = "time";
-          interval = 1;
-          format = "%a %m/%d %R";
-        }
-      ];
-      icons = "material-nf";
-      theme = "native";
-    };
-  };
-
   programs.mako = {
     enable = true;
     defaultTimeout = 1000;

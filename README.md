@@ -30,7 +30,6 @@ Edit `/etc/nixos/configuration.nix`:
 ```
 boot.kernelPackages = pkgs.linuxPackages_latest;
 boot.initrd.luks.devices.crypt.device = "/dev/nvme0n1p2";
-nix.package = pkgs.nixUnstable;
 nix.extraOptions = ''
   experimental-features = nix-command flakes
 '';

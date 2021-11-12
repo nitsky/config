@@ -9,25 +9,24 @@ bindkey -v
 KEYTIMEOUT=0
 
 # use the system clipboard
-function zsh-system-clipboard-vicmd-vi-yank() {
-    zle vi-yank
-    printf '%s' "$CUTBUFFER" | wl-copy
+function copy {
+  zle vi-yank
+  echo "$CUTBUFFER" | wl-copy -n
 }
-zle -N zsh-system-clipboard-vicmd-vi-yank
-bindkey -M vicmd 'y' zsh-system-clipboard-vicmd-vi-put
-function zsh-system-clipboard-vicmd-vi-put() {
+zle -N copy
+bindkey -M vicmd 'y' copy
+function paste_before {
+  CUTBUFFER=$(wl-paste -n)
+  zle vi-put-before
 }
-zle -N zsh-system-clipboard-vicmd-vi-yank
-function zsh-system-clipboard-vicmd-vi-put-after() {
-    zsh-system-clipboard-vicmd-vi-put after
+zle -N paste_before
+bindkey -M vicmd 'P' paste_before
+function paste_after {
+  CUTBUFFER=$(wl-paste -n)
+  zle vi-put-after
 }
-zle -N zsh-system-clipboard-vicmd-vi-put-after
-function zsh-system-clipboard-vicmd-vi-put-before() {
-    zsh-system-clipboard-vicmd-vi-put before
-}
-zle -N zsh-system-clipboard-vicmd-vi-put-before
-bindkey -M vicmd 'P' zsh-system-clipboard-vicmd-vi-put-before
-bindkey -M vicmd 'p' zsh-system-clipboard-vicmd-vi-put-after
+zle -N paste_after
+bindkey -M vicmd 'p' paste_after
 
 # set cursor based on keymap
 function zle-line-init {

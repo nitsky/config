@@ -3,9 +3,9 @@
     aerc
     awscli2
     binutils
-    (pkgs.chromium.override {
-      commandLineArgs = "--enable-features=UseOzonePlatform --ozone-platform=wayland --force-dark-mode";
-    })
+    # (pkgs.chromium.override {
+    #   commandLineArgs = "--enable-features=UseOzonePlatform --ozone-platform=wayland --force-dark-mode";
+    # })
     cmake
     cowsay
     deno
