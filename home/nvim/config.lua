@@ -136,9 +136,7 @@ vim.api.nvim_set_keymap("n", "<leader>e", ":Telescope lsp_workspace_diagnostics<
 vim.api.nvim_set_keymap("n", "<leader>f", ":Telescope fd<CR>", {})
 vim.api.nvim_set_keymap("n", "<leader>g", "/", {})
 vim.api.nvim_set_keymap("n", "<leader>h", ":Telescope command_history<CR>", {})
-vim.api.nvim_set_keymap("n", "<leader>i", "<C-i>", {})
 vim.api.nvim_set_keymap("n", "<leader>n", ":vsplit<CR>:wincmd l<CR>", {})
-vim.api.nvim_set_keymap("n", "<leader>o", "<C-o>", {})
 vim.api.nvim_set_keymap("n", "<leader>p", ":", {})
 vim.api.nvim_set_keymap("n", "<leader>q", ":qa<CR>", {})
 vim.api.nvim_set_keymap("n", "<leader>r", ":Telescope lsp_references<CR>", {})
@@ -151,6 +149,8 @@ vim.api.nvim_set_keymap("n", "<leader>x", ":lua vim.lsp.buf.rename()<CR>", {})
 
 -- Control keybindings.
 vim.api.nvim_set_keymap("n", "<C-f>", "/", {})
+vim.api.nvim_set_keymap("n", "<C-i>", "<C-o>", { noremap = true })
+vim.api.nvim_set_keymap("n", "<C-o>", "<C-i>", { noremap = true })
 vim.api.nvim_set_keymap("n", "<C-q>", ":qa<CR>", {})
 vim.api.nvim_set_keymap("n", "<C-s>", ":silent w<CR>", { silent = true })
 vim.api.nvim_set_keymap("n", "<C-w>", ":q<CR>", {})
