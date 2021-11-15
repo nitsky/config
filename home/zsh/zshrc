@@ -51,18 +51,11 @@ zle_highlight=(region:bg=#333333;paste:bg=none)
 # enable binding of ^s
 stty -ixon
 
-# ctrl d to interrupt
+# C-d to interrupt
 stty intr \^d
 
-# ctrl q to quit
+# C-q to quit
 stty quit \^q
-
-# ctrl-a to go to the beginning of the line.
-# ctrl-e to go to the end of the line.
-bindkey '^a' beginning-of-line
-bindkey '^e' end-of-line
-bindkey -M vicmd '^a' beginning-of-line
-bindkey -M vicmd '^e' end-of-line
 
 # H and L to move to the beginning and end of a line.
 bindkey -M vicmd 'H' beginning-of-line
