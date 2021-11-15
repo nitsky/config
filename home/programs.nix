@@ -28,7 +28,6 @@
     jq
     killall
     mpv
-    neovim
     nodejs-16_x
     nodePackages.http-server
     obs-studio

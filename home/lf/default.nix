@@ -2,8 +2,8 @@
   programs.lf = {
     enable = true;
     commands = {
-      # https://xkcd.com/1168/
       extract = ''''${{
+        # https://xkcd.com/1168/
         set -f
         case $f in
           *.tar.bz|*.tar.bz2|*.tbz|*.tbz2) tar -xjvf $f;;
@@ -22,6 +22,13 @@
         fi
         lf -remote "send $id $cmd $f"
       }}'';
+      rmrf = ''''${{
+        set -f
+        echo $fx
+        printf "Are you sure you want to rm -rf? [Y/n] "
+        read answer
+        [ $answer = "Y" ] && rm -rf $fx
+      }}'';
       tar = ''''${{
         set -f
         mkdir $1
@@ -34,25 +41,19 @@
         mv $fx ~/.trash/
         echo "files moved to trash"
       }}'';
-      rmrf = ''''${{
-        set -f
-        echo $fx
-        printf "Are you sure you want to rm -rf? [Y/n] "
-        read answer
-        [ $answer = "Y" ] && rm -rf $fx
-      }}'';
     };
     keybindings = {
       "<c-f>" = "search";
       "<c-t>" = "jump";
       "<esc>" = ":unselect; clear";
       "<space>" = "toggle";
+      "D" = "trash";
+      "H" = "cd ~/";
+      "J" = "bottom";
+      "K" = "top";
+      "R" = "rmrf";
       "i" = "set hidden!";
-      D = "trash";
-      H = "cd ~/";
-      J = "bottom";
-      K = "top";
-      R = "rmrf";
+      "x" = "cut";
     };
     settings = {
       hidden = true;

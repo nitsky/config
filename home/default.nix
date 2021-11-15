@@ -9,7 +9,7 @@ user:
     ./gpg.nix
     ./htop.nix
     ./lf
-    ./neovim
+    ./nvim
     ./pass.nix
     (import ./pim.nix user)
     ./programs.nix
