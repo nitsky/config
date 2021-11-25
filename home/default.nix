@@ -6,7 +6,7 @@ user:
     (import ./firefox.nix user)
     ./fzf.nix
     (import ./git.nix user)
-    ./gpg.nix
+    (import ./gpg.nix user)
     ./htop.nix
     ./lf
     ./nvim

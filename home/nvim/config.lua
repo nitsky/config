@@ -126,23 +126,23 @@ vim.api.nvim_set_keymap("n", "<leader>L", ":wincmd L<CR>", {})
 -- Leader keybindings.
 vim.api.nvim_set_keymap("n", "<leader>D", ":lua vim.lsp.buf.type_definition()<CR>", {})
 vim.api.nvim_set_keymap("n", "<leader>G", ":Telescope live_grep<CR>", {})
+vim.api.nvim_set_keymap("n", "<leader>H", ":Telescope command_history<CR>", {})
 vim.api.nvim_set_keymap("n", "<leader>N", ":split<CR>:wincmd j<CR>", {})
 vim.api.nvim_set_keymap("n", "<leader>R", ":source $MYVIMRC<CR>", {})
 vim.api.nvim_set_keymap("n", "<leader>S", ":wa<CR>", {})
+vim.api.nvim_set_keymap("n", "<leader>T", ":split<CR>:term<CR>", {})
 vim.api.nvim_set_keymap("n", "<leader>U", ":lua vim.lsp.diagnostic.show_line_diagnostics()<CR>", {})
 vim.api.nvim_set_keymap("n", "<leader>a", ":NvimTreeToggle<CR>", {})
 vim.api.nvim_set_keymap("n", "<leader>d", ":lua vim.lsp.buf.definition()<CR>", {})
 vim.api.nvim_set_keymap("n", "<leader>e", ":Telescope lsp_workspace_diagnostics<CR>", {})
 vim.api.nvim_set_keymap("n", "<leader>f", ":Telescope fd<CR>", {})
 vim.api.nvim_set_keymap("n", "<leader>g", "/", {})
-vim.api.nvim_set_keymap("n", "<leader>h", ":Telescope command_history<CR>", {})
 vim.api.nvim_set_keymap("n", "<leader>n", ":vsplit<CR>:wincmd l<CR>", {})
 vim.api.nvim_set_keymap("n", "<leader>p", ":", {})
 vim.api.nvim_set_keymap("n", "<leader>q", ":qa<CR>", {})
 vim.api.nvim_set_keymap("n", "<leader>r", ":Telescope lsp_references<CR>", {})
 vim.api.nvim_set_keymap("n", "<leader>s", ":silent w<CR>", {})
 vim.api.nvim_set_keymap("n", "<leader>t", ":vsplit<CR>:term<CR>", {})
-vim.api.nvim_set_keymap("n", "<leader>T", ":split<CR>:term<CR>", {})
 vim.api.nvim_set_keymap("n", "<leader>u", ":lua vim.lsp.buf.hover()<CR>", {})
 vim.api.nvim_set_keymap("n", "<leader>w", ":q<CR>", {})
 vim.api.nvim_set_keymap("n", "<leader>x", ":lua vim.lsp.buf.rename()<CR>", {})
@@ -248,7 +248,13 @@ vim.lsp.handlers["textDocument/publishDiagnostics"] = vim.lsp.with(
 	}
 )
 
-require("rust-tools").setup({})
+require("rust-tools").setup({
+	tools = {
+		inlay_hints = {
+			only_current_line = true,
+		},
+	},
+})
 
 -- Format on save.
 vim.cmd([[

@@ -1,3 +1,4 @@
+user:
 { pkgs, ... }: {
   home.packages = with pkgs; [
     yubikey-manager
@@ -10,5 +11,6 @@
     enable = true;
     enableSshSupport = true;
     pinentryFlavor = "curses";
+    sshKeys = [ user.sshKeyKeygrip ];
   };
 }

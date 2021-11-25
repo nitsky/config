@@ -112,10 +112,6 @@ export LESSHISTFILE=/dev/null
 export OPENER="xdg-open"
 export PGUSER=postgres
 
-# gpg
-# export GPG_TTY=$(tty)
-# export SSH_AUTH_SOCK=$(gpgconf --list-dirs agent-ssh-socket)
-
 # less
 [ -f ~/.config/.lesskey ] && lesskey
 

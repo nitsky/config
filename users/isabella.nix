@@ -1,10 +1,5 @@
 { inputs, pkgs, ... }:
 import ../home {
-  username = "isabella";
-  git = {
-    name = "Isabella Tromba";
-    email = "isabella.tromba@gmail.com";
-  };
   accounts = {
     personal = {
       name = "Isabella Tromba";
@@ -15,6 +10,12 @@ import ../home {
       email = "isabella@tangram.dev";
     };
   };
+  git = {
+    name = "Isabella Tromba";
+    email = "isabella.tromba@gmail.com";
+  };
+  sshKeyKeygrip = "351FCEECAAB25A6FD9D5B46DBD28E6DA4B110CAB";
+  username = "isabella";
 } {
   inherit pkgs;
 }

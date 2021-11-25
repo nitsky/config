@@ -23,5 +23,12 @@
       babyshark = import ./machines/babyshark.nix inputs;
       vader = import ./machines/vader.nix inputs;
     };
+    packages.x86_64-linux = 
+      let 
+        pkgs = import inputs.nixpkgs { system = "x86_64-linux"; }; 
+        makeDiskImage = import <nixpkgs/nixos/lib/make-disk-image.nix>;
+      in {
+        img = makeDiskImage {};
+      };
   };
 }

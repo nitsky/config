@@ -51,3 +51,28 @@ nix-shell -p nix-info --run "nix-info -m"
 nix-env -iA nixpkgs.nixFlakes
 echo "experimental-features = nix-command flakes" >> /etc/nix/nix.conf
 ```
+
+## GPG Key Setup
+
+export NAME="John Doe"
+export EMAIL="john@example.com"
+gpg --quick-generate-key "$NAME <$EMAIL>" ed25519 cert never
+export KEYFP=$(gpg -k --with-colons $EMAIL | awk -F: '$1 == "fpr" { print $10 }')
+gpg --quick-add-key $KEYFP ed25519 sign never
+gpg --quick-add-key $KEYFP cv25519 encr never
+gpg --quick-add-key $KEYFP ed25519 auth never
+
+# list public keys
+gpg -k
+
+# list private keys
+gpg -K
+
+# Get SSH public key
+gpg --export-ssh-key $EMAIL
+
+# ~/.gnupg/sshcontrol
+gpg -k --with-keygrip
+
+# reload gpg
+gpg-connect-agent reloadagent /bye

@@ -14,14 +14,14 @@ inputs.nixpkgs.lib.nixosSystem {
         createHome = true;
         extraGroups = [ "wheel" ];
         shell = pkgs.zsh;
-        openssh.authorizedKeys.keyFiles = [ ../nitsky.public.rsa ../isabella.public.rsa ];
+        openssh.authorizedKeys.keyFiles = [ ../users/nitsky.public.rsa ../users/isabella.public.rsa ];
       };
       users.users.isabella = {
         isNormalUser = true;
         createHome = true;
         extraGroups = [ "wheel" ];
         shell = pkgs.zsh;
-        openssh.authorizedKeys.keyFiles = [ ../nitsky.public.rsa ../isabella.public.rsa ];
+        openssh.authorizedKeys.keyFiles = [ ../users/nitsky.public.rsa ../users/isabella.public.rsa ];
       };
       boot = {
         blacklistedKernelModules = [ "psmouse" ];
