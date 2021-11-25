@@ -40,7 +40,6 @@
     wayvnc
     wf-recorder
     wl-clipboard
-    wofi
     xdg-utils
   ];
 
@@ -70,25 +69,6 @@
       executable = true;
       source = ./emoji.sh;
     };
-    "wofi/config".text = ''
-      prompt=
-      matching=fuzzy
-      term=alacritty
-    '';
-    "wofi/style.css".text = ''
-      #window {
-        background: #333333;
-      }
-      #input {
-        background: #333333;
-        border-radius: 0px;
-        border: none;
-      }
-      #entry:selected {
-        background: #0A84FF;
-        outline: none;
-      }
-    '';
     "swaylock/config".text = ''
       color=000000FF
       daemonize
@@ -100,7 +80,13 @@
       exec_before=notify-send 'Screen sharing started.'
       exec_after=notify-send 'Screen sharing ended.'
       chooser_type=dmenu
-      chooser_cmd=wofi --dmenu
+      chooser_cmd=${pkgs.writeShellScriptBin "chooser" ''
+        INPUT=$(mktemp)
+        OUTPUT=$(mktemp)
+        cat /dev/stdin > $INPUT
+        alacritty --class launcher --command sh -c "cat $INPUT | fzf --layout reverse --select-1 | tee $OUTPUT"
+        cat $OUTPUT
+      ''}/bin/chooser
     '';
   };
 }
