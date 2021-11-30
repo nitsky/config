@@ -15,14 +15,13 @@
       pkgs = import nixpkgs {
         inherit system;
       };
-      rust = (with fenix.packages.${system}; combine [
-        rust-analyzer
-        stable.cargo
-        stable.clippy-preview
-        stable.rust-src
-        stable.rust-std
-        stable.rustc
-        stable.rustfmt-preview
+      rust = with fenix.packages.${system}; combine (with stable; [
+        cargo
+        clippy-preview
+        rust-src
+        rust-std
+        rustc
+        rustfmt-preview
       ]);
     in rec {
       defaultApp = flake-utils.lib.mkApp {
