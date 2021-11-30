@@ -108,10 +108,16 @@ inputs:
   users.users.greeter.group = "greeter";
   users.groups.greeter = {};
 
+  boot.cleanTmpDir = true;
+
   environment.systemPackages = with pkgs; [
     git
     sof-firmware
     vim
+  ];
+
+  systemd.tmpfiles.rules = [
+    "L+ /lib64/ld-linux-x86-64.so.2 - - - - ${pkgs.stdenv.glibc}/lib64/ld-linux-x86-64.so.2"
   ];
 
   programs.bash.promptInit = ''
@@ -151,11 +157,4 @@ inputs:
     ];
     gtkUsePortal = true;
   };
-
-  # systemd.services.nix-ld = {
-  #   wantedBy = [ "multi-user.target" ];
-  #   serviceConfig = {
-  #     ExecStart = "ln -sf $NIX_CC/nix-support/dynamic-linker /lib64/ld-linux-x86-64.so.2";
-  #   };
-  # };
 }
