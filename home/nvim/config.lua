@@ -185,13 +185,17 @@ treesitter.setup({
 })
 
 -- Commenting.
-require("Comment").setup({})
-vim.api.nvim_set_keymap("n", "<leader>/", ":lua require('Comment').toggle()<CR>", {})
-vim.api.nvim_set_keymap("v", "<leader>/", ":lua require('Comment').toggle()<CR>", {})
-vim.cmd([[
-autocmd! BufEnter *.rs :lua vim.api.nvim_buf_set_option(0, "commentstring", "// %s")
-autocmd! BufEnter *.lua :lua vim.api.nvim_buf_set_option(0, "commentstring", "-- %s")
-]])
+require("Comment").setup({
+	ignore = "^$",
+	opleader = {
+		line = "<leader>/",
+		block = "<leader>?",
+	},
+	toggler = {
+		line = "<leader>/",
+		block = "<leader>?",
+	},
+})
 
 -- Autocomplete.
 local cmp = require("cmp")

@@ -3,9 +3,9 @@
     aerc
     awscli2
     binutils
-    # (pkgs.chromium.override {
-    #   commandLineArgs = "--enable-features=UseOzonePlatform --ozone-platform=wayland --force-dark-mode";
-    # })
+    (pkgs.chromium.override {
+      commandLineArgs = "--enable-features=UseOzonePlatform --ozone-platform=wayland --force-dark-mode";
+    })
     cmake
     cowsay
     deno
@@ -27,6 +27,7 @@
     inputs.tangram.defaultPackage.${system}
     jq
     killall
+    mold
     mpv
     nixfmt
     nodejs-16_x
@@ -49,6 +50,7 @@
     vim
     wally-cli
     xh
+    xsv
     zig
     zoom-us
   ];

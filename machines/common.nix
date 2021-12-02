@@ -116,8 +116,28 @@ inputs:
     vim
   ];
 
+  # systemd.tmpfiles.rules = 
+  #   let
+  #     ld = pkgs.symlinkJoin {
+  #       name = "ld";
+  #       paths = with pkgs; [
+  #         glibc
+  #         zlib
+  #         (pkgs.writeTextFile {
+  #           name = "ld.so.conf";
+  #           destination = "/etc/ld.so.conf";
+  #           text = ''
+  #             ${zlib}/lib
+  #           '';
+  #         })
+  #       ];
+  #     } + /lib64/ld-linux-x86-64.so.2;
+  #   in [
+  #     "L+ /lib64/ld-linux-x86-64.so.2 - - - - ${ld}"
+  #   ];
+
   systemd.tmpfiles.rules = [
-    "L+ /lib64/ld-linux-x86-64.so.2 - - - - ${pkgs.stdenv.glibc}/lib64/ld-linux-x86-64.so.2"
+    "L+ /lib64/ld-linux-x86-64.so.2 - - - - ${pkgs.glibc}/lib64/ld-linux-x86-64.so.2"
   ];
 
   programs.bash.promptInit = ''

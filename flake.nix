@@ -8,7 +8,7 @@
       inputs.nixpkgs.follows = "nixpkgs";
     };
     nixpkgs = {
-      url = "github:nixos/nixpkgs/master";
+      url = "github:nixos/nixpkgs/nixos-unstable";
     };
     status = {
       url = "path:./status";
