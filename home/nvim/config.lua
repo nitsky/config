@@ -254,15 +254,13 @@ vim.lsp.handlers["textDocument/publishDiagnostics"] = vim.lsp.with(
 
 require("rust-tools").setup({
 	tools = {
-		inlay_hints = {
-			only_current_line = true,
-		},
+		autoSetHints = false,
 	},
 })
 
 -- Format on save.
 vim.cmd([[
-autocmd! BufWritePost *.rs :lua vim.lsp.buf.formatting_sync(nil, 1000)
+autocmd! BufWritePre *.rs :lua vim.lsp.buf.formatting_sync(nil, 1000)
 ]])
 
 -- Terminal.

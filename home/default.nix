@@ -11,15 +11,16 @@ user:
     ./lf
     ./nvim
     ./pass.nix
-    (import ./pim.nix user)
     ./programs.nix
     ./rust.nix
     ./spotify.nix
     ./ssh.nix
-    ./sway
     ./tmux
     ./vscode.nix
-    ./xdg.nix
     ./zsh
-  ];
+  ]
+  ++ (if user.system == "x86_64-linux" then [
+    ./sway
+    ./xdg.nix
+  ] else []);
 }

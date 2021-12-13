@@ -1,4 +1,4 @@
-{ inputs, pkgs, ... }:
+{ inputs, pkgs, system, ... }:
 import ../home {
   accounts = {
     personal = {
@@ -15,6 +15,7 @@ import ../home {
     email = "david@yamnitsky.com";
   };
   sshKeyKeygrip = "CC89063AD3C9C6D31240CC3E5C709ABF4F7284C0";
+  inherit system;
   username = "nitsky";
 } {
   inherit pkgs;

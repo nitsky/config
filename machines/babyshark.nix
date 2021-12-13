@@ -81,18 +81,12 @@ inputs.nixpkgs.lib.nixosSystem {
       home-manager.useGlobalPkgs = true;
       home-manager.useUserPackages = true;
       home-manager.extraSpecialArgs = {
-        hostname = "babyshark";
         inherit inputs;
         inherit system;
+        hostname = "babyshark";
       };
-      home-manager.users.nitsky = { ... }: {
-        home.stateVersion = "21.05";
-        imports = [ ../users/nitsky.nix ];
-      };
-      home-manager.users.isabella = { ... }: {
-        home.stateVersion = "21.05";
-        imports = [ ../users/isabella.nix ];
-      };
+      home-manager.users.nitsky = import ../users/nitsky.nix;
+      home-manager.users.isabella = import ../users/isabella.nix;
     }
   ];
 }

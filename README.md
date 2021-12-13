@@ -10,7 +10,7 @@ sudo cryptsetup open /dev/nvme0n1p2 crypt
 sudo pvcreate /dev/mapper/crypt
 sudo vgcreate vg /dev/mapper/crypt
 sudo lvcreate -L 64G vg -n swap
-sudo lvcreate -L 128G vg -n root
+sudo lvcreate -L 256G vg -n root
 sudo lvcreate -l 100%FREE vg -n home
 sudo mkfs.fat -F32 /dev/nvme0n1p1
 sudo mkswap /dev/vg/swap
@@ -38,18 +38,6 @@ environment.systemPackages = with pkgs; [ vim git ];
 
 ```
 sudo nixos-install
-```
-
-macOS Installation instructions:
-
-Install karabiner elements and install the caps lock control escape rule from the library.
-Install Rectangle and set the left half, right half, and maximize rules.
-
-```
-sh <(curl -L https://nixos.org/nix/install) --darwin-use-unencrypted-nix-store-volume --daemon
-nix-shell -p nix-info --run "nix-info -m"
-nix-env -iA nixpkgs.nixFlakes
-echo "experimental-features = nix-command flakes" >> /etc/nix/nix.conf
 ```
 
 ## GPG Key Setup

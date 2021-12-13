@@ -43,7 +43,6 @@
     ripgrep
     sd
     slack
-    tmux
     tokei
     unzip
     usbutils
