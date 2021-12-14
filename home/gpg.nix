@@ -1,16 +1,19 @@
 user:
 { pkgs, ... }: {
-  home.packages = with pkgs; [
-    yubikey-manager
-    yubikey-personalization
-  ];
   programs.gpg = {
     enable = true;
   };
-  services.gpg-agent = {
-    enable = true;
-    enableSshSupport = true;
-    pinentryFlavor = "curses";
-    sshKeys = [ user.sshKeyKeygrip ];
-  };
+  home.file.".gnupg/gpg-agent.conf".text = ''
+    enable-ssh-support
+  '';
+  home.file.".gnupg/sshcontrol".text = ''
+   ${user.sshKeyKeygrip}
+  '';
+  programs.zsh.initExtra = ''
+    export SSH_AUTH_SOCK=$(gpgconf --list-dirs agent-ssh-socket)
+    gpgconf --launch gpg-agent
+  '';
+  # services.gpg-agent = {
+  #   enable = true;
+  # };
 }

@@ -1,9 +1,7 @@
 user:
 { ... }: {
   imports = [
-    ./alacritty.nix
     ./bat.nix
-    (import ./firefox.nix user)
     ./fzf.nix
     (import ./git.nix user)
     (import ./gpg.nix user)
@@ -11,16 +9,19 @@ user:
     ./lf
     ./nvim
     ./pass.nix
-    ./programs.nix
+    (import ./programs.nix user)
     ./rust.nix
     ./spotify.nix
     ./ssh.nix
     ./tmux
-    ./vscode.nix
+    # ./vscode.nix
     ./zsh
   ]
   ++ (if user.system == "x86_64-linux" then [
-    ./sway
-    ./xdg.nix
+    # ./alacritty.nix
+    # (import ./firefox.nix user)
+    # ./sway
+    # ./xdg.nix
+    # linuxPackages.perf
   ] else []);
 }

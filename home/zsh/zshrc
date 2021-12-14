@@ -118,6 +118,9 @@ export PGUSER=postgres
 # lf
 [ -f ~/.config/lf/icons ] && source ~/.config/lf/icons
 
+# homebrew
+[ -f ~/homebrew/bin/brew ] && eval $(~/homebrew/bin/brew shellenv)
+
 # aliases
 alias d='trash'
 alias e='nvim'

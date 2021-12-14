@@ -17,7 +17,6 @@ in {
     cargo-license
     cargo-outdated
     cargo-udeps
-    linuxPackages.perf
     rust
     trunk
     wasm-bindgen-cli

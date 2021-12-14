@@ -1,11 +1,9 @@
+user:
 { inputs, pkgs, system, ... }: {
   home.packages = with pkgs; [
     aerc
     awscli2
     binutils
-    (pkgs.chromium.override {
-      commandLineArgs = "--enable-features=UseOzonePlatform --ozone-platform=wayland --force-dark-mode";
-    })
     cmake
     cowsay
     deno
@@ -15,26 +13,17 @@
     fd
     file
     fortune
-    gcc
     gh
-    gnome3.adwaita-icon-theme
     gnumake
+    gnused
     hexyl
     htop
     hyperfine
-    imv
-    inputs.status.defaultPackage.${system}
-    inputs.tangram.defaultPackage.${system}
     jq
     killall
-    mold
-    mpv
     nixfmt
     nodejs-16_x
     nodePackages.http-server
-    obs-studio
-    openrgb
-    pavucontrol
     pkg-config
     postgresql
     pup
@@ -42,15 +31,29 @@
     qemu
     ripgrep
     sd
-    slack
     tokei
     unzip
-    usbutils
     vim
     wally-cli
     xh
     xsv
-    zig
+  ]
+  ++ (if user.system == "x86_64-linux" then [
+    (pkgs.chromium.override {
+      commandLineArgs = "--enable-features=UseOzonePlatform --ozone-platform=wayland --force-dark-mode";
+    })
+    gcc
+    gnome3.adwaita-icon-theme
+    imv
+    inputs.status.defaultPackage.${system}
+    inputs.tangram.defaultPackage.${system}
+    mold
+    mpv
+    obs-studio
+    openrgb
+    pavucontrol
+    slack
+    usbutils
     zoom-us
-  ];
+  ] else []);
 }
