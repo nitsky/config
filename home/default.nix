@@ -18,10 +18,9 @@ user:
     ./zsh
   ]
   ++ (if user.system == "x86_64-linux" then [
-    # ./alacritty.nix
-    # (import ./firefox.nix user)
-    # ./sway
-    # ./xdg.nix
-    # linuxPackages.perf
+    ./alacritty.nix
+    (import ./firefox.nix user)
+    ./sway
+    ./xdg.nix
   ] else []);
 }
