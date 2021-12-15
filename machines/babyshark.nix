@@ -12,14 +12,14 @@ inputs.nixpkgs.lib.nixosSystem {
       users.users.nitsky = {
         isNormalUser = true;
         createHome = true;
-        extraGroups = [ "wheel" ];
+        extraGroups = [ "wheel" "libvirtd" ];
         shell = pkgs.zsh;
         openssh.authorizedKeys.keyFiles = [ ../users/nitsky.public.rsa ../users/isabella.public.rsa ];
       };
       users.users.isabella = {
         isNormalUser = true;
         createHome = true;
-        extraGroups = [ "wheel" ];
+        extraGroups = [ "wheel" "libvirtd" ];
         shell = pkgs.zsh;
         openssh.authorizedKeys.keyFiles = [ ../users/nitsky.public.rsa ../users/isabella.public.rsa ];
       };

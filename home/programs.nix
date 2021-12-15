@@ -54,6 +54,7 @@ user:
     pavucontrol
     slack
     usbutils
+    virt-manager
     zoom-us
   ] else []);
 }
