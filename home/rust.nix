@@ -1,15 +1,4 @@
-{ pkgs, inputs, system, ... }:
-let
-  rust = (with inputs.fenix.packages.${system}; combine [
-    rust-analyzer
-    stable.cargo
-    stable.clippy-preview
-    stable.rust-src
-    stable.rust-std
-    stable.rustc
-    stable.rustfmt-preview
-  ]);
-in {
+{ pkgs, inputs, system, ... }: {
   home.packages = with pkgs; [
     cargo-asm
     cargo-expand
@@ -17,7 +6,8 @@ in {
     cargo-license
     cargo-outdated
     cargo-udeps
-    rust
+    rust-analyzer
+    rustup
     trunk
     wasm-bindgen-cli
   ];
