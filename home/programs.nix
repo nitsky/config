@@ -16,10 +16,12 @@ user:
     gh
     gnumake
     gnused
+    helix
     hexyl
     htop
     hyperfine
     jq
+    kakoune
     killall
     nixfmt
     nodejs-16_x
