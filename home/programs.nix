@@ -14,6 +14,7 @@ user:
     file
     fortune
     gh
+    glow
     gnumake
     gnused
     helix
@@ -23,6 +24,7 @@ user:
     jq
     kakoune
     killall
+    mosh
     nixfmt
     nixpkgs-fmt
     nodejs-16_x
