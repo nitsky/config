@@ -27,7 +27,7 @@ inputs:
   networking = {
     useDHCP = false;
     networkmanager.enable = true;
-    firewall.trustedInterfaces = ["tailscale0"];
+    firewall.trustedInterfaces = [ "tailscale0" ];
     hosts = {
       "100.94.50.82" = [ "babybeluga" ];
       "100.100.213.21" = [ "babyshark" ];
@@ -104,7 +104,7 @@ inputs:
     window { background-color: #000000; }
   '';
   users.users.greeter.group = "greeter";
-  users.groups.greeter = {};
+  users.groups.greeter = { };
 
   boot.cleanTmpDir = true;
 
@@ -122,7 +122,7 @@ inputs:
     PS1="$ "
   '';
   programs.dconf.enable = true;
-  security.pam.services.swaylock = {};
+  security.pam.services.swaylock = { };
   services.fprintd.enable = true;
 
   fonts = {

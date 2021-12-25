@@ -18,8 +18,8 @@
       playground
       plenary-nvim
       rust-tools-nvim
-      telescope-symbols-nvim
       telescope-nvim
+      telescope-symbols-nvim
       vim-vsnip
     ];
     extraConfig = ''

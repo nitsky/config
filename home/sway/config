@@ -58,7 +58,7 @@ bar {
 	}
 	font 16px
 	position top
-	status_command status
+	# status_command swaystatus
 }
 
 #                       border  bg      text    indi    child

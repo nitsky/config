@@ -161,52 +161,52 @@
       };
       "vim.normalModeKeyBindings" = [
         {
-          "after" = ["}"];
-          "before" = ["J"];
+          "after" = [ "}" ];
+          "before" = [ "J" ];
         }
         {
-          "after" = ["{"];
-          "before" = ["K"];
+          "after" = [ "{" ];
+          "before" = [ "K" ];
         }
         {
-          "after" = ["_"];
-          "before" = ["H"];
+          "after" = [ "_" ];
+          "before" = [ "H" ];
         }
         {
-          "after" = ["$"];
-          "before" = ["L"];
+          "after" = [ "$" ];
+          "before" = [ "L" ];
         }
         {
-          "before" = ["u"];
-          "commands" = ["undo"];
+          "before" = [ "u" ];
+          "commands" = [ "undo" ];
         }
         {
-          "before" = ["U"];
-          "commands" = ["redo"];
+          "before" = [ "U" ];
+          "commands" = [ "redo" ];
         }
       ];
       "vim.visualModeKeyBindings" = [
         {
-          "after" = ["}"];
-          "before" = ["J"];
+          "after" = [ "}" ];
+          "before" = [ "J" ];
         }
         {
-          "after" = ["{"];
-          "before" = ["K"];
+          "after" = [ "{" ];
+          "before" = [ "K" ];
         }
         {
-          "after" = ["_"];
-          "before" = ["H"];
+          "after" = [ "_" ];
+          "before" = [ "H" ];
         }
         {
-          "after" = ["$"];
-          "before" = ["L"];
+          "after" = [ "$" ];
+          "before" = [ "L" ];
         }
       ];
       "vim.visualModeKeyBindingsNonRecursive" = [
         {
-          "after" = ["p" "g" "v" "y"];
-          "before" = ["p"];
+          "after" = [ "p" "g" "v" "y" ];
+          "before" = [ "p" ];
         }
       ];
     };

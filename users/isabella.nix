@@ -1,5 +1,6 @@
 { inputs, pkgs, system, ... }:
-import ../home {
+import ../home
+{
   accounts = {
     personal = {
       name = "Isabella Tromba";
@@ -17,6 +18,7 @@ import ../home {
   sshKeyKeygrip = "351FCEECAAB25A6FD9D5B46DBD28E6DA4B110CAB";
   inherit system;
   username = "isabella";
-} {
+}
+{
   inherit pkgs;
 }

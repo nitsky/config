@@ -24,6 +24,7 @@ user:
     kakoune
     killall
     nixfmt
+    nixpkgs-fmt
     nodejs-16_x
     nodePackages.http-server
     pkg-config
@@ -47,7 +48,7 @@ user:
     gcc
     gnome3.adwaita-icon-theme
     imv
-    inputs.status.defaultPackage.${system}
+    # inputs.swaystatus.defaultPackage.${system}
     inputs.tangram.defaultPackage.${system}
     mold
     mpv
@@ -57,6 +58,7 @@ user:
     slack
     usbutils
     virt-manager
+    vscode
     zoom-us
-  ] else []);
+  ] else [ ]);
 }

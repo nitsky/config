@@ -2,6 +2,7 @@ user:
 { ... }: {
   imports = [
     ./bat.nix
+    ./direnv.nix
     ./fzf.nix
     (import ./git.nix user)
     (import ./gpg.nix user)
@@ -14,7 +15,6 @@ user:
     ./spotify.nix
     ./ssh.nix
     ./tmux
-    # ./vscode.nix
     ./zsh
   ]
   ++ (if user.system == "x86_64-linux" then [
@@ -22,5 +22,5 @@ user:
     (import ./firefox.nix user)
     ./sway
     ./xdg.nix
-  ] else []);
+  ] else [ ]);
 }

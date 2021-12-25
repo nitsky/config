@@ -24,7 +24,7 @@ inputs.nixpkgs.lib.nixosSystem {
         openssh.authorizedKeys.keyFiles = [ ../users/nitsky.public.rsa ../users/isabella.public.rsa ];
       };
       boot = {
-        binfmt.emulatedSystems = [ 
+        binfmt.emulatedSystems = [
           "aarch64-linux"
         ];
         blacklistedKernelModules = [ "psmouse" ];
@@ -44,7 +44,7 @@ inputs.nixpkgs.lib.nixosSystem {
           luks.devices.crypt.device = "/dev/nvme0n1p2";
           verbose = false;
         };
-        kernelModules = [ "kvm-amd" ];
+        kernelModules = [ "kvm-amd" "kvm-intel" ];
         kernelParams = [
           "quiet"
           "udev.log_priority=3"
@@ -77,7 +77,8 @@ inputs.nixpkgs.lib.nixosSystem {
         { device = "/dev/mapper/vg-swap"; }
       ];
     })
-    inputs.home-manager.nixosModules.home-manager {
+    inputs.home-manager.nixosModules.home-manager
+    {
       home-manager.useGlobalPkgs = true;
       home-manager.useUserPackages = true;
       home-manager.extraSpecialArgs = {

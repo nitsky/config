@@ -13,9 +13,6 @@
     nixpkgs = {
       url = "github:nixos/nixpkgs/nixos-unstable";
     };
-    status = {
-      url = "path:./status";
-    };
     tangram = {
       url = "github:tangramdotdev/tangram/v0.7.0";
     };
@@ -52,10 +49,11 @@
   }
   //
   inputs.flake-utils.lib.eachDefaultSystem (system:
-    let pkgs = import inputs.nixpkgs { 
-      inherit system; 
+    let pkgs = import inputs.nixpkgs {
+      inherit system;
     };
-    in {
+    in
+    {
       devShell = pkgs.mkShell {
         packages = with pkgs; [
           inputs.home-manager.defaultPackage.${system}
