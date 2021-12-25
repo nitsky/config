@@ -73,6 +73,9 @@ inputs:
     udisks2.enable = true;
   };
 
+  services.gnome.gnome-keyring.enable = true;
+  programs.seahorse.enable = true;
+
   programs.sway = {
     enable = true;
     wrapperFeatures.gtk = true;
