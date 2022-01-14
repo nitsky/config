@@ -1,7 +1,6 @@
 user:
 { inputs, pkgs, system, ... }: {
   home.packages = with pkgs; [
-    aerc
     awscli2
     binutils
     cmake

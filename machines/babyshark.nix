@@ -24,9 +24,6 @@ inputs.nixpkgs.lib.nixosSystem {
         openssh.authorizedKeys.keyFiles = [ ../users/nitsky.public.rsa ../users/isabella.public.rsa ];
       };
       boot = {
-        binfmt.emulatedSystems = [
-          "aarch64-linux"
-        ];
         blacklistedKernelModules = [ "psmouse" ];
         consoleLogLevel = 0;
         initrd = {

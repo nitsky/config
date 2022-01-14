@@ -126,7 +126,7 @@ inputs:
   '';
   programs.dconf.enable = true;
   security.pam.services.swaylock = { };
-  services.fprintd.enable = true;
+  # services.fprintd.enable = true;
 
   fonts = {
     enableDefaultFonts = true;
