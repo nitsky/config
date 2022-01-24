@@ -13,6 +13,7 @@ user:
     file
     fortune
     gh
+    ghc
     glow
     gnumake
     gnused
