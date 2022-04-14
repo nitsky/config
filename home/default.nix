@@ -7,6 +7,7 @@ user:
     (import ./git.nix user)
     (import ./gpg.nix user)
     ./htop.nix
+    ./kitty
     ./lf
     ./nvim
     ./pass.nix

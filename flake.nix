@@ -11,10 +11,7 @@
       inputs.nixpkgs.follows = "nixpkgs";
     };
     nixpkgs = {
-      url = "github:nixos/nixpkgs/nixos-unstable";
-    };
-    tangram = {
-      url = "github:tangramdotdev/tangram/v0.7.0";
+      url = "github:nixos/nixpkgs";
     };
   };
   outputs = inputs: {

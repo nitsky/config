@@ -10,6 +10,6 @@
     rustup
     trunk
     wasm-bindgen-cli
-    zig
+    # zig
   ];
 }

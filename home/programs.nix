@@ -6,7 +6,6 @@ user:
     cmake
     cowsay
     deno
-    dnsutils
     elixir
     exa
     fd
@@ -24,16 +23,16 @@ user:
     jq
     kakoune
     killall
+    lld_14
     mosh
     nixfmt
     nixpkgs-fmt
-    nodejs-16_x
     nodePackages.http-server
+    nodejs-16_x
     pkg-config
     postgresql
     pup
     python3
-    qemu
     ripgrep
     sd
     tokei

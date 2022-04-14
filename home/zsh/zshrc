@@ -105,7 +105,6 @@ setopt share_history
 setopt extended_history
 
 # misc
-export BROWSER="firefox"
 export EDITOR="nvim"
 export LESS="-R"
 export LESSHISTFILE=/dev/null
@@ -119,7 +118,8 @@ export PGUSER=postgres
 [ -f ~/.config/lf/icons ] && source ~/.config/lf/icons
 
 # homebrew
-[ -f ~/homebrew/bin/brew ] && eval $(~/homebrew/bin/brew shellenv)
+[ -d ~/homebrew ] && eval $(~/homebrew/bin/brew shellenv)
+[ -d /opt/homebrew ] && eval $(/opt/homebrew/bin/brew shellenv)
 
 # aliases
 alias d='trash'
