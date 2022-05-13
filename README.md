@@ -42,6 +42,7 @@ sudo nixos-install
 
 ## GPG Key Setup
 
+```
 export NAME="John Doe"
 export EMAIL="john@example.com"
 gpg --quick-generate-key "$NAME <$EMAIL>" ed25519 cert never
@@ -49,6 +50,7 @@ export KEYFP=$(gpg -k --with-colons $EMAIL | awk -F: '$1 == "fpr" { print $10 }'
 gpg --quick-add-key $KEYFP ed25519 sign never
 gpg --quick-add-key $KEYFP cv25519 encr never
 gpg --quick-add-key $KEYFP ed25519 auth never
+```
 
 # list public keys
 gpg -k
