@@ -52,6 +52,13 @@ gpg --quick-add-key $KEYFP cv25519 encr never
 gpg --quick-add-key $KEYFP ed25519 auth never
 ```
 
+```
+sudo scutil --set HostName <new host name>
+sudo scutil --set LocalHostName <new host name>
+sudo scutil --set ComputerName <new name>
+dscacheutil -flushcache
+```
+
 # list public keys
 gpg -k
 
