@@ -1,7 +1,7 @@
 user:
 { inputs, pkgs, system, ... }: {
   home.packages = with pkgs; [
-    awscli2
+    # awscli2
     binutils
     cmake
     cowsay
@@ -50,7 +50,7 @@ user:
     gnome3.adwaita-icon-theme
     imv
     # inputs.swaystatus.defaultPackage.${system}
-    inputs.tangram.defaultPackage.${system}
+    # inputs.tangram.defaultPackage.${system}
     mold
     mpv
     obs-studio
@@ -58,7 +58,7 @@ user:
     pavucontrol
     slack
     usbutils
-    virt-manager
+    # virt-manager
     vscode
     zoom-us
   ] else [ ]);

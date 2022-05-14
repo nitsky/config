@@ -13,7 +13,7 @@ user:
     ./pass.nix
     (import ./programs.nix user)
     ./rust.nix
-    ./spotify.nix
+    # ./spotify.nix
     ./ssh.nix
     ./tmux
     ./zsh
