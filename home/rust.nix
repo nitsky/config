@@ -3,6 +3,7 @@
     cargo-asm
     cargo-expand
     cargo-flamegraph
+    cargo-insta
     cargo-license
     cargo-outdated
     cargo-udeps
